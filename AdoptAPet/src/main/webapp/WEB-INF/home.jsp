@@ -11,5 +11,7 @@
 <h1>Welcome to I hate CSS a sad story by Noah Johnson!</h1>
 <h2>Featuring Luka De Souza and Brian Teets and I'm the Mapp</h2>
 
+${DEBUG}
+
 </body>
 </html>
