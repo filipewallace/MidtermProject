@@ -17,13 +17,13 @@ public class UserDaoImpl implements UserDAO {
 	
 	@Override
 	public User findById(int userId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return em.find(User.class, userId);
 	}
 
 	@Override
 	public User findByUsernameAndPassword(String username, String password) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
