@@ -7,8 +7,16 @@
     
     <!-- begin entities -->
     
+    <class>com.skilldistillery.adoptapet.entities.Account</class>
+    <class>com.skilldistillery.adoptapet.entities.Address</class>
+    <class>com.skilldistillery.adoptapet.entities.Breed</class>
+    <class>com.skilldistillery.adoptapet.entities.Category</class>
+    <class>com.skilldistillery.adoptapet.entities.Pet</class>
+    <class>com.skilldistillery.adoptapet.entities.PetSex</class>
+    <class>com.skilldistillery.adoptapet.entities.Role</class>
+    <class>com.skilldistillery.adoptapet.entities.Size</class>
     <class>com.skilldistillery.adoptapet.entities.User</class>
-    <!-- end entities -->
+     <!-- end entities -->
 
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/petadoptdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Eastern" />
