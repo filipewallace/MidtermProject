@@ -48,7 +48,8 @@ public class Account {
 	@OneToOne
 	@JoinColumn(name="address_id")
 	private Address address;
-
+	
+	
 	
 	// METHODS
 	
