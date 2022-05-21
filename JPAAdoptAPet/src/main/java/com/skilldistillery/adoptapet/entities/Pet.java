@@ -38,8 +38,13 @@ public class Pet {
 //	@ManyToOne
 //	@JoinColumn(name="account_id")
 //	private Account account;
-	
 	// ask and only dee OR alex or mason
+	
+	
+	@ManyToOne
+	@JoinColumn(name="account_id")
+	private Account account;
+	
 	
 	private boolean neutered;
 	
