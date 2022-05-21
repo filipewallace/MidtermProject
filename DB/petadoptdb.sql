@@ -252,7 +252,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `petadoptdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `active`, `account_id`, `role_id`) VALUES (1, 'ron', 'password', 1, 1, 2);
+INSERT INTO `user` (`id`, `username`, `password`, `active`, `account_id`, `role_id`) VALUES (1, 'ron', 'password', 1, 1, 1);
 INSERT INTO `user` (`id`, `username`, `password`, `active`, `account_id`, `role_id`) VALUES (2, 'sarah', 'sarahnelson', 1, 2, 2);
 
 COMMIT;
