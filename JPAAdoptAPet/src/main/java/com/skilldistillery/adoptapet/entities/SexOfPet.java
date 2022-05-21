@@ -9,26 +9,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Category {
-	
+public class SexOfPet {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name="name")
-	private String typeOfPet;
-	
-	// METHOD STARTS
+	private String maleOrFemale;
 
-	public Category() {
+	// METHODS
+	
+	public SexOfPet() {
 		super();
 	}
-	
-	
-	
-	
-	// METHOD ENDS 
-	
+ // METHODS END
 	public int getId() {
 		return id;
 	}
@@ -37,12 +32,12 @@ public class Category {
 		this.id = id;
 	}
 
-	public String getTypeOfPet() {
-		return typeOfPet;
+	public String getMaleOrFemale() {
+		return maleOrFemale;
 	}
 
-	public void setTypeOfPet(String typeOfPet) {
-		this.typeOfPet = typeOfPet;
+	public void setMaleOrFemale(String maleOrFemale) {
+		this.maleOrFemale = maleOrFemale;
 	}
 
 	@Override
@@ -58,14 +53,14 @@ public class Category {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Category other = (Category) obj;
+		SexOfPet other = (SexOfPet) obj;
 		return id == other.id;
 	}
-
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", typeOfPet=" + typeOfPet + "]";
+		return "SexOfPet [id=" + id + ", maleOrFemale=" + maleOrFemale + "]";
 	}
+	
 	
 	
 }
