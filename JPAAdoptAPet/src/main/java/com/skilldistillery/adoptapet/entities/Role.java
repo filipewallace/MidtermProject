@@ -1,5 +1,6 @@
 package com.skilldistillery.adoptapet.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Role {
@@ -20,19 +23,18 @@ public class Role {
 	@Column(name = "name")
 	private String roleName;
 
-	@OneToOne(mappedBy = "role")
-	private User user;
+	@OneToMany(mappedBy= "role")
+	private List<User> userList;
 
-	
-	//METHOD START
+	// METHOD START
 	public Role() {
 		super();
 	}
-	
-	//METHOD END
-	
-	//GETTER/SETTER START
-	
+
+	// METHOD END
+
+	// GETTER/SETTER START
+
 	public int getId() {
 		return id;
 	}
@@ -49,19 +51,21 @@ public class Role {
 		this.roleName = roleName;
 	}
 
-	public User getUser() {
-		return user;
-	}
+	// GETTER/SETTER END
 
-	public void setUser(User user) {
-		this.user = user;
-	}
 
-	//GETTER/SETTER END
-	
+
 	@Override
 	public String toString() {
-		return "Role [id=" + id + ", roleName=" + roleName + ", user=" + user + "]";
+		return "Role [id=" + id + ", roleName=" + roleName + ", userList=" + userList + "]";
+	}
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
 	}
 
 	@Override

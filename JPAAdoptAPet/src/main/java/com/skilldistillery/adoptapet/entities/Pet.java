@@ -36,9 +36,9 @@ public class Pet {
 	private String personality;
 	
 	
-//	@ManyToOne
-//	@JoinColumn(name="account_id")
-//	private UserAccount account;
+	@ManyToOne
+	@JoinColumn(name="account_id")
+	private Account account;
 	
 	
 	private boolean neutered;

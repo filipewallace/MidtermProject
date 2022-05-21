@@ -7,7 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.xml.ws.soap.MTOM;
 
 @Entity
 public class User {
@@ -26,7 +29,8 @@ public class User {
 	@JoinColumn(name = "account_id")
 	private Account account;
 	
-	@OneToOne
+	
+	@ManyToOne
 	@JoinColumn(name="role_id")
 	private Role role;
 	
