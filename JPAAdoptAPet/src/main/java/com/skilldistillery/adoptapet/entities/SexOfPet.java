@@ -7,8 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="pet_sex")
 public class SexOfPet {
 
 	@Id
@@ -23,6 +25,7 @@ public class SexOfPet {
 	public SexOfPet() {
 		super();
 	}
+	
  // METHODS END
 	public int getId() {
 		return id;
@@ -60,7 +63,6 @@ public class SexOfPet {
 	public String toString() {
 		return "SexOfPet [id=" + id + ", maleOrFemale=" + maleOrFemale + "]";
 	}
-	
 	
 	
 }
