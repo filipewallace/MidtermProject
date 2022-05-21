@@ -51,5 +51,4 @@ class RoleTest {
 		assertNotNull(role);
 		assertTrue(role.getUserList().size() > 0);
 	}
-
 }

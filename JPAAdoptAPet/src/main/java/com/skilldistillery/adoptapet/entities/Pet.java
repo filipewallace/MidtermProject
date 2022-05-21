@@ -43,9 +43,9 @@ public class Pet {
 	
 	private boolean neutered;
 	
-//	@ManyToOne
-//	@JoinColumn(name="breed_id")
-//	private Breed breed;
+	@ManyToOne
+	@JoinColumn(name="breed_id")
+	private Breed breed;
 	
 	@Column(name="about_me")
 	private String aboutMe;
@@ -53,10 +53,10 @@ public class Pet {
 	@Column(name="active")
 	private boolean activeListing;
 	
-//	@ManyToOne
-//	@JoinColumn(name="pet_sex_id")
-//	private SexOfPet sexOfPet;
-
+	@ManyToOne
+	@JoinColumn(name="pet_sex_id")
+	private SexOfPet sexOfPet;
+	
 	//********************METHODS*******************************
 	
 	public Pet() {
@@ -130,13 +130,13 @@ public class Pet {
 		this.neutered = neutered;
 	}
 
-//	public Breed getBreed() {
-//		return breed;
-//	}
-//
-//	public void setBreed(Breed breed) {
-//		this.breed = breed;
-//	}
+	public Breed getBreed() {
+		return breed;
+	}
+
+	public void setBreed(Breed breed) {
+		this.breed = breed;
+	}
 
 	public String getAboutMe() {
 		return aboutMe;
@@ -154,21 +154,33 @@ public class Pet {
 		this.activeListing = activeListing;
 	}
 
-//	public SexOfPet getSexOfPet() {
-//		return sexOfPet;
-//	}
-//
-//	public void setSexOfPet(SexOfPet sexOfPet) {
-//		this.sexOfPet = sexOfPet;
-//	}
+	public SexOfPet getSexOfPet() {
+		return sexOfPet;
+	}
 
-//	@Override
-//	public String toString() {
-//		return "Pet [id=" + id + ", petName=" + petName + ", vaccinatedStatus=" + vaccinatedStatus + ", imageLink="
-//				+ imageLink + ", dob=" + dob + ", weight=" + weight + ", personality=" + personality + ", neutered="
-//				+ neutered + ", breed=" + breed + ", aboutMe=" + aboutMe + ", activeListing=" + activeListing
-//				+ ", sexOfPet=" + sexOfPet + "]";
-//	}
+	public void setSexOfPet(SexOfPet sexOfPet) {
+		this.sexOfPet = sexOfPet;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Pet [id=" + id + ", petName=" + petName + ", vaccinatedStatus=" + vaccinatedStatus + ", imageLink="
+				+ imageLink + ", dob=" + dob + ", weight=" + weight + ", personality=" + personality + ", neutered="
+				+ neutered + ", breed=" + breed + ", aboutMe=" + aboutMe + ", activeListing=" + activeListing
+				+ ", sexOfPet=" + sexOfPet + "]";
+	}
 
 	@Override
 	public int hashCode() {

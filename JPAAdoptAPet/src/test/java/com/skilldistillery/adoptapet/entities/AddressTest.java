@@ -46,5 +46,11 @@ class AddressTest {
 		assertEquals("1276 Sylveon Dr", address.getPrimaryStreet());
 		assertEquals("Unit 17", address.getSecondaryStreet());
 	}
-
+	@Test
+	void test_address_to_account() {
+		address = em.find(Address.class, 1);
+		assertNotNull(address);
+		assertEquals("Ron", address.getAccount().getFirstName());
+		assertEquals("7205550202", address.getAccount().getPhoneNumber());
+	}
 }

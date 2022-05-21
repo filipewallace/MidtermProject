@@ -1,6 +1,7 @@
 package com.skilldistillery.adoptapet.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -47,6 +49,9 @@ public class Account {
 
 	@OneToOne(mappedBy="account")
 	private User user;
+	
+	@OneToMany(mappedBy="account")
+	private List<Pet> petList;
 
 	// METHODS
 
@@ -135,6 +140,16 @@ public class Account {
 		this.user = user;
 	}
 	// GETTERS/SETTERS
+
+	
+
+	public List<Pet> getPets() {
+		return petList;
+	}
+
+	public void setPets(List<Pet> pets) {
+		this.petList = pets;
+	}
 
 	@Override
 	public String toString() {

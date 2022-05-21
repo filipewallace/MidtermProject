@@ -2,6 +2,7 @@ package com.skilldistillery.adoptapet.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -62,5 +63,10 @@ public class AccountTest {
 		assertEquals("1276 Sylveon Dr", account.getAddress().getPrimaryStreet());
 		assertEquals("Unit 17", account.getAddress().getSecondaryStreet());
 		assertEquals("CA", account.getAddress().getStateAbbreviation());
+	}
+	@Test
+	void test_account_to_pet_mapping() {
+		assertNotNull(account);
+		assertTrue(account.getPets().size() > 0);
 	}
 }

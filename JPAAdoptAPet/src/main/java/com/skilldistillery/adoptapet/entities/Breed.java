@@ -1,5 +1,6 @@
 package com.skilldistillery.adoptapet.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Breed {
@@ -32,6 +34,10 @@ public class Breed {
 	@ManyToOne
 	@JoinColumn(name="category_id")
 	private Category category;
+	
+	@OneToMany(mappedBy="breed")
+	private List<Pet> petList;
+	
 
 	
 	// METHOD STARTS
@@ -39,9 +45,6 @@ public class Breed {
 		super();
 	}
 
-	
-	
-	
 	
 	// METHOD ENDS
 	public int getId() {
@@ -91,6 +94,22 @@ public class Breed {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	public List<Pet> getPetList() {
+		return petList;
+	}
+
+
+
+
+
+	public void setPetList(List<Pet> petList) {
+		this.petList = petList;
+	}
+
+
+
+
 
 	@Override
 	public int hashCode() {

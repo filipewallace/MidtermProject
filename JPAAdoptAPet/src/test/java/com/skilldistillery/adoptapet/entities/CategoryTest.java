@@ -42,9 +42,15 @@ class CategoryTest {
 	
 
 	@Test
-	void test() {
+	void test_basic_mapping() {
 		assertNotNull(category);
 		assertEquals("dog", category.getTypeOfPet());
+	}
+	@Test
+	void test_category_to_breed_mapping(){
+		assertNotNull(category);
+		assertNotNull(category.getBreedList());
+		assertTrue(category.getBreedList().size() > 0);
 	}
 
 }

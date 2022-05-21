@@ -41,12 +41,36 @@ class PetTest {
 	}
 
 	@Test
-	void test() {
+	void test_basic_mapping() {
 		assertNotNull(pet);
 		assertEquals("Fluffy", pet.getPetName());
 		assertEquals("Friendly", pet.getPersonality());
 		assertEquals(12.50, pet.getWeight());
 		
 	}
-
+	@Test
+	void test_pet_to_account_mappings() {
+		assertNotNull(pet);
+		assertEquals("Ron", pet.getAccount().getFirstName());
+		assertEquals("Weasley", pet.getAccount().getLastName());
+	}
+	@Test
+	void test_pet_to_sex_mapping() {
+		assertNotNull(pet);
+		assertNotNull(pet.getSexOfPet());
+		assertEquals("male" , pet.getSexOfPet().getMaleOrFemale());
+	}
+	@Test
+	void test_pet_to_sex_mapping2() {
+		pet = em.find(Pet.class, 2);
+		assertNotNull(pet);
+		assertNotNull(pet.getSexOfPet());
+		assertEquals("female" , pet.getSexOfPet().getMaleOrFemale());
+	}
+	@Test
+	void test_pet_to_breed() {
+		assertNotNull(pet);
+		assertNotNull(pet.getBreed());
+		assertEquals("Persian", pet.getBreed().getBreedName());
+	}
 }

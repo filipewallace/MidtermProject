@@ -1,5 +1,6 @@
 package com.skilldistillery.adoptapet.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +21,9 @@ public class SexOfPet {
 	
 	@Column(name="name")
 	private String maleOrFemale;
+	
+	@OneToMany(mappedBy="sexOfPet")
+	private List<Pet> petList;
 
 	// METHODS
 	
@@ -41,6 +46,16 @@ public class SexOfPet {
 
 	public void setMaleOrFemale(String maleOrFemale) {
 		this.maleOrFemale = maleOrFemale;
+	}
+
+	
+
+	public List<Pet> getPetList() {
+		return petList;
+	}
+
+	public void setPetList(List<Pet> petList) {
+		this.petList = petList;
 	}
 
 	@Override

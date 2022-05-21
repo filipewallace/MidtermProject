@@ -1,6 +1,8 @@
 package com.skilldistillery.adoptapet.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -40,9 +42,29 @@ class BreedTest {
 	}
 
 	@Test
-	void test() {
+	void test_basic_mapping() {
 		assertNotNull(breed);
 		assertEquals("Golden Retriever", breed.getBreedName());
 	}
-
+	@Test
+	void test_breed_to_pet_mapping() {
+		breed = em.find(Breed.class,4);
+		assertNotNull(breed);
+		assertNotNull(breed.getPetList());
+		assertTrue(breed.getPetList().size() > 0);
+	}
+	@Test
+	void test_breed_to_category_mapping() {
+		breed = em.find(Breed.class, 1);
+		assertNotNull(breed);
+		assertNotNull(breed.getCategory());
+		assertEquals("dog", breed.getCategory().getTypeOfPet());
+	}
+	@Test
+	void test_breed_to_size() {
+		breed = em.find(Breed.class, 2);
+		assertNotNull(breed);
+		assertNotNull(breed.getSize());
+		assertEquals("small" , breed.getSize().getPetSize());
+	}
 }

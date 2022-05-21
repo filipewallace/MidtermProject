@@ -12,7 +12,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class SexOfSexOfPetTest {
+class SexOfPetTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
@@ -41,9 +41,13 @@ class SexOfSexOfPetTest {
 	}
 
 	@Test
-	void test() {
+	void test_basic_mapping() {
 		assertNotNull(sexofpet);
 		assertEquals("male", sexofpet.getMaleOrFemale());
 	}
-
+	@Test
+	void test_sex_to_pet_mapping() {
+		assertNotNull(sexofpet);
+		assertTrue(sexofpet.getPetList().size() > 0);
+	}
 }
