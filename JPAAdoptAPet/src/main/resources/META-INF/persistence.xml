@@ -7,7 +7,6 @@
     
     <!-- begin entities -->
     
-    <class>com.skilldistillery.adoptapet.entities.Account</class>
     <class>com.skilldistillery.adoptapet.entities.Address</class>
     <class>com.skilldistillery.adoptapet.entities.Breed</class>
     <class>com.skilldistillery.adoptapet.entities.Category</class>
@@ -16,6 +15,7 @@
     <class>com.skilldistillery.adoptapet.entities.Role</class>
     <class>com.skilldistillery.adoptapet.entities.Size</class>
     <class>com.skilldistillery.adoptapet.entities.User</class>
+    <class>com.skilldistillery.adoptapet.entities.Account</class>
      <!-- end entities -->
 
     <properties>

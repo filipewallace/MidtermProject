@@ -41,11 +41,11 @@ public class User {
 	
 	// METHODS END
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", active=" + active
-				+ ", account=" + account + ", role=" + role + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "User [id=" + id + ", username=" + username + ", password=" + password + ", active=" + active
+//				+ ", account=" + account + ", role=" + role + "]";
+//	}
 
 
 
@@ -75,37 +75,48 @@ public class User {
 
 	//GETTERS/SETTERS START
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getUsername() {
 		return username;
 	}
 
+
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
 
 	public boolean isActive() {
 		return active;
 	}
 
+
+
 	public void setActive(boolean active) {
 		this.active = active;
 	}
 
+
+
 	public Account getAccount() {
 		return account;
 	}
+
+
 
 	public void setAccount(Account account) {
 		this.account = account;
@@ -122,6 +133,14 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 
 
 

@@ -38,12 +38,13 @@ class UserTest {
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
+		user = null;
 	}
 
 	@Test
 	void test_User_entity_mapping() {
 		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
+		assertEquals("ron", user.getUsername());
 	}
 
 }

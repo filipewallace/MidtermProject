@@ -10,10 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
-
-public class Account {
+@Table(name="account")
+public class Account { 
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,8 +35,9 @@ public class Account {
 	@Column(name = "date_of_birth")
 	private LocalDate dob;
 
-	@OneToOne(mappedBy = "account") 
-	private int addressId;
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
 
 	@Column(name = "about_me")
 	private String aboutMe;
@@ -43,27 +45,16 @@ public class Account {
 	@Column(name = "active")
 	private boolean active;
 
-	@OneToOne(mappedBy = "user")
+	@OneToOne(mappedBy="account")
 	private User user;
-	
-	@OneToOne
-	@JoinColumn(name="address_id")
-	private Address address;
-	
-	
-	
+
 	// METHODS
-	
 
 	public Account() {
 		super();
 	}
-
-	
 	// METHODS END
-	
-	//GETTERS/SETTERS
-	
+
 	public int getId() {
 		return id;
 	}
@@ -112,12 +103,12 @@ public class Account {
 		this.dob = dob;
 	}
 
-	public int getAddressId() {
-		return addressId;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public String getAboutMe() {
@@ -143,20 +134,14 @@ public class Account {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	// GETTERS/SETTERS
 
-	
-	// GETTERS/SETTERS END
-	
-	
-	public Address getAddress() {
-		return address;
+	@Override
+	public String toString() {
+		return "UserAccount [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", phoneNumber=" + phoneNumber + ", dob=" + dob + ", address=" + address + ", aboutMe=" + aboutMe
+				+ ", active=" + active + ", user=" + user + "]";
 	}
-
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
 
 	@Override
 	public int hashCode() {
@@ -175,11 +160,7 @@ public class Account {
 		return id == other.id;
 	}
 
-	@Override
-	public String toString() {
-		return "Account [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", phoneNumber=" + phoneNumber + ", dob=" + dob + ", addressId=" + addressId + ", aboutMe=" + aboutMe
-				+ ", active=" + active + ", user=" + user + "]";
-	}
+	
+
 
 }
