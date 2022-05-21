@@ -14,14 +14,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class UserTest {
-	
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private User user;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		emf = Persistence.createEntityManagerFactory("JPAAdoptAPet"); 
+		emf = Persistence.createEntityManagerFactory("JPAAdoptAPet");
 	}
 
 	@AfterAll
@@ -32,7 +32,7 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		user = em.find(User.class, 2);
 	}
 
 	@AfterEach
@@ -44,7 +44,21 @@ class UserTest {
 	@Test
 	void test_User_entity_mapping() {
 		assertNotNull(user);
-		assertEquals("ron", user.getUsername());
+		assertEquals("sarah", user.getUsername());
 	}
 
+
+	@Test
+	void test_user_to_account_mapping() {
+		assertNotNull(user);
+		assertEquals("Sarah", user.getAccount().getFirstName());
+		assertEquals("Nelson", user.getAccount().getLastName());
+	}
+//	 SELECT role.name FROM role JOIN user ON role.id = user.role_id WHERE role.id =2;
+	@Test
+	void test_user_to_role_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getRole().getRoleName());
+		assertEquals("registered_user", user.getRole().getRoleName());
+	}
 }

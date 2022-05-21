@@ -50,5 +50,17 @@ public class AccountTest {
 		assertEquals("Ron", account.getFirstName());
 		assertEquals("Weasley", account.getLastName());
 	}
-
+	@Test
+	void test_account_to_user_mapping() {
+		assertNotNull(account);
+		assertEquals("ron", account.getUser().getUsername());
+		assertEquals(2 , account.getUser().getRole().getId());
+	}
+	@Test
+	void test_account_to_address_mapping() {
+		assertNotNull(account);
+		assertEquals("1276 Sylveon Dr", account.getAddress().getPrimaryStreet());
+		assertEquals("Unit 17", account.getAddress().getSecondaryStreet());
+		assertEquals("CA", account.getAddress().getStateAbbreviation());
+	}
 }

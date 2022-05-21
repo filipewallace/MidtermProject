@@ -31,7 +31,7 @@ class RoleTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		role = em.find(Role.class, 1);
+		role = em.find(Role.class, 2);
 	}
 
 	@AfterEach
@@ -42,8 +42,14 @@ class RoleTest {
 	@Test
 	void test_basic_role_mapping() {
 		assertNotNull(role);
-		assertEquals("admin", role.getRoleName());
+		assertEquals("registered_user", role.getRoleName());
 		
+	}
+	@Test
+	void test_role_to_user() {
+		
+		assertNotNull(role);
+		assertTrue(role.getUserList().size() > 0);
 	}
 
 }

@@ -12,36 +12,36 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="street")
+
+	@Column(name = "street")
 	private String primaryStreet;
-	
-	@Column(name="street2")
+
+	@Column(name = "street2")
 	private String secondaryStreet;
-	
+
 	private String city;
-	
-	@Column(name="state_abbr")
-	private char stateAbbreviation;
-	
+
+	@Column(name = "state_abbr")
+	private String stateAbbreviation;
+
 	private String zipcode;
-	
-	@OneToOne(mappedBy="address")
+
+	@OneToOne(mappedBy = "address")
 	private Account account;
-	
-	//METHOD START
-	
+
+	// METHOD START
+
 	public Address() {
 		super();
 	}
-	
-	//METHOD END
-	
-	//GETTERS/SETTERS START
+
+	// METHOD END
+
+	// GETTERS/SETTERS START
 
 	public int getId() {
 		return id;
@@ -75,11 +75,11 @@ public class Address {
 		this.city = city;
 	}
 
-	public char getStateAbbreviation() {
+	public String getStateAbbreviation() {
 		return stateAbbreviation;
 	}
 
-	public void setStateAbbreviation(char stateAbbreviation) {
+	public void setStateAbbreviation(String stateAbbreviation) {
 		this.stateAbbreviation = stateAbbreviation;
 	}
 
@@ -90,11 +90,8 @@ public class Address {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-	
-	
-	//GETTERS/SETTERS END
 
-	
+	// GETTERS/SETTERS END
 
 	public Account getAccount() {
 		return account;
@@ -120,9 +117,5 @@ public class Address {
 		Address other = (Address) obj;
 		return id == other.id;
 	}
-
-	
-	
-	
 
 }
