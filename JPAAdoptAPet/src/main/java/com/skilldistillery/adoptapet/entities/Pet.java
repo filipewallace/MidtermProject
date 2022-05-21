@@ -38,8 +38,13 @@ public class Pet {
 //	@ManyToOne
 //	@JoinColumn(name="account_id")
 //	private Account account;
-	
 	// ask and only dee OR alex or mason
+	
+	
+	@ManyToOne
+	@JoinColumn(name="account_id")
+	private Account account;
+	
 	
 	private boolean neutered;
 	
@@ -64,12 +69,6 @@ public class Pet {
 	}
 	
 	
-	//***************************************************
-	//***************************************************
-	//***************************************************
-	//***************************************************
-	//***************************************************
-	//***************************************************
 	
 	//GETTERS N SETTERS
 	public int getId() {
@@ -193,7 +192,6 @@ public class Pet {
 		return id == other.id;
 	}
 
-	
 	
 	
 }
