@@ -13,7 +13,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.skilldistillery.adoptapet.data.UserDAO;
 import com.skilldistillery.adoptapet.entities.Account;
 import com.skilldistillery.adoptapet.entities.Address;
-import com.skilldistillery.adoptapet.entities.Pet;
 import com.skilldistillery.adoptapet.entities.Role;
 import com.skilldistillery.adoptapet.entities.User;
 
@@ -83,10 +82,5 @@ public class UserController {
 		
 		return "redirect:home.do";
 	}
-	@RequestMapping(path="createPet.do")
-	public String createPet(Account account, Pet pet, RedirectAttributes redir) {
-		
-		
-		return "views/createPetPage";
-	}
+	
 }

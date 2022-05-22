@@ -21,10 +21,17 @@
 
 
 	</div>
-	<form action="logout.do" method="GET">
-	<input type="submit" value="Log Out" />
+	<form action="createPet.do" method="GET">
+		<input type="submit" value="Create Pet Listing" />
 	</form>
-	
+
+	<form action="logout.do" method="GET">
+		<input type="submit" value="Log Out" />
+	</form>
+	<form action="home.do" method="GET">
+		<input type="submit" value="Home" />
+	</form>
+
 
 
 </body>

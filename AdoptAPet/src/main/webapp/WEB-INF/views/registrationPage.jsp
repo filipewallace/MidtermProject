@@ -21,6 +21,8 @@
 	<input type="submit" value="Submit"/>
 	
 	</form>
-	
+	<form action="home.do" method="GET">
+		<input type="submit" value="Home" />
+	</form>
 	</body>
 </html>

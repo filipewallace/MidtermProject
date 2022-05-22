@@ -14,4 +14,7 @@
 		<input type="text" name="password" /> <input type="submit"
 			value="Login" />
 	</form>
+	<form action="home.do" method="GET">
+		<input type="submit" value="Home" />
+	</form>
 </body>
