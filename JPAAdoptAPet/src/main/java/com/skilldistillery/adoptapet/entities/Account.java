@@ -48,7 +48,7 @@ public class Account {
 	@Column(name = "active")
 	private boolean active;
 
-	@OneToOne(mappedBy="account", cascade = CascadeType.PERSIST)
+	@OneToOne(mappedBy="account")
 	private User user;
 	
 	@OneToMany(mappedBy="account")

@@ -21,7 +21,10 @@
 
 
 	</div>
-	<a href="home.do"> Return to home</a>
+	<form action="logout.do" method="GET">
+	<input type="submit" value="Log Out" />
+	</form>
+	
 
 
 </body>
