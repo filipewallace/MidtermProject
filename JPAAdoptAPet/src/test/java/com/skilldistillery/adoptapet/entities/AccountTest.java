@@ -67,6 +67,6 @@ public class AccountTest {
 	@Test
 	void test_account_to_pet_mapping() {
 		assertNotNull(account);
-		assertTrue(account.getPets().size() > 0);
+		assertTrue(account.getPetList().size() > 0);
 	}
 }

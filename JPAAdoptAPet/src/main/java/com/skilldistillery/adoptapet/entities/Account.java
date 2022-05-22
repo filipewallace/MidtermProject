@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -47,7 +48,7 @@ public class Account {
 	@Column(name = "active")
 	private boolean active;
 
-	@OneToOne(mappedBy="account")
+	@OneToOne(mappedBy="account", cascade = CascadeType.PERSIST)
 	private User user;
 	
 	@OneToMany(mappedBy="account")
@@ -143,11 +144,11 @@ public class Account {
 
 	
 
-	public List<Pet> getPets() {
+	public List<Pet> getPetList() {
 		return petList;
 	}
 
-	public void setPets(List<Pet> pets) {
+	public void setPetList(List<Pet> pets) {
 		this.petList = pets;
 	}
 

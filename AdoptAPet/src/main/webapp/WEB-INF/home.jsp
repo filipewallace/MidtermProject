@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +8,21 @@
 </head>
 <body>
 
-<h1>Welcome to I hate CSS a sad story by Noah Johnson!</h1>
-<h2>Featuring Luka De Souza and Brian Teets and I'm the Mapp</h2>
+	<h1>THIS IS WHERE I WOULD PUT A HOME PAGE..... IF I HAD ONE</h1>
 
-${DEBUG}
+	<form action="userPage.do" method="GET">
+		User ID: <input type="text" name="id" /> 
+		<input type="submit" value="Show User" />
+	</form>
+
+	<form action="loginPage.do" method="GET">
+
+		PlaceHolder <input type="submit" value="Login" />
+
+
+	</form>
+
+
 
 </body>
 </html>
