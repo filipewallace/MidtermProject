@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `pet` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `vaccinated` TINYINT NULL,
-  `image_url` VARCHAR(2000) NULL,
+  `image_url` TEXT NULL,
   `date_of_birth` DATETIME NULL,
   `weight` DECIMAL(5,2) NULL,
   `temperament` VARCHAR(500) NULL COMMENT 'Temperament, personality - good with kids; energetic; needs attention; abused / neglected at some previous home; etc. ',
