@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,16 +7,14 @@
 <title>Login</title>
 </head>
 <body>
-<form action="userPageRedirect.do" method="GET">
-<h1>Please enter username:</h1>
-<h1>Please enter password:</h1>
-<input type="submit" value="Login"/>
-</form>
-
-<form action="createAccount.do" method="GET">
-
-<input type="submit" value="Create Account"/>
-
-</form>
+	<form action="loginAttempt.do" method="POST">
+		<h1>Please enter username:</h1>
+		<input type="text" name="username" />
+		<h1>Please enter password:</h1>
+		<input type="text" name="password" /> <input type="submit"
+			value="Login" />
+	</form>
+	<form action="home.do" method="GET">
+		<input type="submit" value="Home" />
+	</form>
 </body>
-</html>

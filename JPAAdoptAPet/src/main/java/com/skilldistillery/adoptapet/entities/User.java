@@ -2,6 +2,7 @@ package com.skilldistillery.adoptapet.entities;
 
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,24 +24,20 @@ public class User {
 
 	private boolean active;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "account_id")
 	private Account account;
-	
-	
+
 	@ManyToOne
-	@JoinColumn(name="role_id")
+	@JoinColumn(name = "role_id")
 	private Role role;
-	
-	
-	//METHODS START
+
+	// METHODS START
 
 	public User() {
 		super();
 	}
-	
-	
-	
+
 	// METHODS END
 
 //	@Override
@@ -49,19 +46,14 @@ public class User {
 //				+ ", account=" + account + ", role=" + role + "]";
 //	}
 
-
-
 	public int getId() {
 		return id;
 	}
-
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -75,77 +67,52 @@ public class User {
 		return id == other.id;
 	}
 
-	//GETTERS/SETTERS START
-
+	// GETTERS/SETTERS START
 
 	public String getUsername() {
 		return username;
 	}
 
-
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-
 
 	public String getPassword() {
 		return password;
 	}
 
-
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
 
 	public boolean isActive() {
 		return active;
 	}
 
-
-
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-
-
 
 	public Account getAccount() {
 		return account;
 	}
 
-
-
 	public void setAccount(Account account) {
 		this.account = account;
 	}
-
-
 
 	public Role getRole() {
 		return role;
 	}
 
-
-
 	public void setRole(Role role) {
 		this.role = role;
 	}
-
-
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	// GETTERS/SETTERS END
 
-
-
-
-	//GETTERS/SETTERS END
-	
 }
