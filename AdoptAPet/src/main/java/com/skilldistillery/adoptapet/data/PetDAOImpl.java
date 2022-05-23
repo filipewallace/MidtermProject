@@ -29,6 +29,14 @@ public class PetDAOImpl implements PetDAO {
 		em.persist(pet);
 		return pet;
 	}
+
+	@Override
+	public Pet showPet(Integer id) {
+		String jpql = "SELECT p FROM Pet p WHERE p.id = :id";
+		Pet pet = null;
+		pet = em.createQuery(jpql, Pet.class).setParameter("id", id).getSingleResult();
+		return pet;
+	}
 	
 
 }

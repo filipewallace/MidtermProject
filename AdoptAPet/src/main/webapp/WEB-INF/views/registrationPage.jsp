@@ -9,15 +9,17 @@
 <body>
 <form action="createAccountRedirect.do" method="POST">
 	<h1>Please enter username:</h1>
-	<input type="text" name="username" />
+	<input type="text" name="username" required/>
 	<h1>Please enter password:</h1>
-	<input type="text" name="password" />
+	<input type="text" name="password" required/>
 	<h1>First Name: </h1>
-	<input type="text" name="firstName"/>
+	<input type="text" name="firstName"required/>
 	<h1>Last Name: </h1>
-	<input type="text" name="lastName" />
+	<input type="text" name="lastName" required/>
 	<h1>Email: </h1>
-	<input type="text" name="email"/>
+	<input type="text" name="email" required/>
+	
+	
 	<input type="submit" value="Submit"/>
 	
 	</form>
