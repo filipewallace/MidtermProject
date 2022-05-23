@@ -11,7 +11,6 @@
 			<form action="home.do">
 				<input type="submit" value="Home">
 			</form>
-
 		</nav>
 	</div>
 
