@@ -7,6 +7,7 @@
 <title>Login</title>
 </head>
 <body>
+<%@ include file="../nav.jsp" %>
 	<form action="loginAttempt.do" method="POST">
 		<h1>Please enter username:</h1>
 		<input type="text" name="username" />

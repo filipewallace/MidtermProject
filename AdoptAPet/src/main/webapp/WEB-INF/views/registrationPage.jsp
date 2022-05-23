@@ -7,6 +7,7 @@
 <title>Registration Page</title>
 </head>
 <body>
+<%@ include file="../nav.jsp" %>
 <form action="createAccountRedirect.do" method="POST">
 	<h1>Please enter username:</h1>
 	<input type="text" name="username" required/>

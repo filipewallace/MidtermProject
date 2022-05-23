@@ -9,7 +9,7 @@
 <title></title>
 </head>
 <body>
-
+<%@ include file="../nav.jsp" %>
 	<ul>
 		<c:forEach var="pet" items="${petList }">
 			<li>Name:<a href="showPetPage.do?id=${pet.id }">
