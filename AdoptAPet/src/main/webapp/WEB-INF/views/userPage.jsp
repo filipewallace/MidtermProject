@@ -8,7 +8,7 @@
 <title>User Page</title>
 </head>
 <body>
-<%@ include file="../nav.jsp" %>
+	<%@ include file="../nav.jsp"%>
 	<h1>This is a user page: BEHOLD!!!</h1>
 	<div>
 
@@ -17,8 +17,10 @@
 		<c:forEach var="pet" items="${user.account.petList}">
 			<p>Pet is: ${pet.petName }</p>
 			<p>${pet.breed}</p>
-			<%-- <p>${user.account.petList.get(0).breed}</p> --%>
-
+			<form action="deleted.do" method="GET">
+				<input type="hidden" name="id" value=${pet.id } /> <input
+					type="submit" class="button" value="Delete Pet" />
+			</form>
 		</c:forEach>
 
 
