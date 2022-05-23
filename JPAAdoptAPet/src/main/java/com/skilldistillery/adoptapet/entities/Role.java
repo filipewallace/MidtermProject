@@ -1,5 +1,6 @@
 package com.skilldistillery.adoptapet.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,6 +30,21 @@ public class Role {
 	// METHOD START
 	public Role() {
 		super();
+	}
+	public void addUser(User user) {
+		if (userList == null)
+			userList = new ArrayList<>();
+		if (!userList.contains(user)) {
+			userList.add(user);
+		}
+		user.setRole(this);
+	}
+
+	public void removeUser(User user) {
+		user.setRole(null);
+		if (userList != null) {
+			userList.remove(user);
+		}
 	}
 
 	// METHOD END

@@ -1,5 +1,6 @@
 package com.skilldistillery.adoptapet.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,28 +13,41 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="name")
+
+	@Column(name = "name")
 	private String typeOfPet;
-	
-	@OneToMany(mappedBy="category")
+
+	@OneToMany(mappedBy = "category")
 	private List<Breed> breedList;
-	
+
 	// METHOD STARTS
 
 	public Category() {
 		super();
 	}
-	
-	
-	
-	
-	// METHOD ENDS 
-	
+
+	public void addBreed(Breed breed) {
+		if (breedList == null)
+			breedList = new ArrayList<>();
+		if (!breedList.contains(breed)) {
+			breedList.add(breed);
+		}
+		breed.setCategory(this);
+	}
+
+	public void removeBreed(Breed breed) {
+		breed.setCategory(null);
+		if (breedList != null) {
+			breedList.remove(breed);
+		}
+	}
+
+	// METHOD ENDS
+
 	public int getId() {
 		return id;
 	}
@@ -59,15 +73,9 @@ public class Category {
 		return breedList;
 	}
 
-
-
-
 	public void setBreedList(List<Breed> breedList) {
 		this.breedList = breedList;
 	}
-
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -85,6 +93,5 @@ public class Category {
 	public String toString() {
 		return "Category [id=" + id + ", typeOfPet=" + typeOfPet + "]";
 	}
-	
-	
+
 }

@@ -15,6 +15,7 @@
 
 		<c:forEach var="pet" items="${user.account.petList}">
 			<p>Pet is: ${pet.petName }</p>
+			<p>${pet. }
 			<p>${user.account.petList.get(0).breed}</p>
 
 		</c:forEach>

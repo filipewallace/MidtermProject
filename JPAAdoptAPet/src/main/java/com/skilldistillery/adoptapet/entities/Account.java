@@ -1,10 +1,10 @@
 package com.skilldistillery.adoptapet.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +16,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="account")
-public class Account { 
+@Table(name = "account")
+public class Account {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,13 +48,30 @@ public class Account {
 	@Column(name = "active")
 	private boolean active;
 
-	@OneToOne(mappedBy="account")
+	@OneToOne(mappedBy = "account")
 	private User user;
-	
-	@OneToMany(mappedBy="account")
+
+	@OneToMany(mappedBy = "account")
 	private List<Pet> petList;
 
+
 	// METHODS
+	
+	public void addPet(Pet pet) {
+		if (petList == null)
+			petList = new ArrayList<>();
+		if (!petList.contains(pet)) {
+			petList.add(pet);
+			
+		}
+		pet.setAccount(this);
+	}
+	public void removeFilm(Pet pet) {
+		pet.setAccount(null);
+		if(petList != null) {
+			petList.remove(pet);
+		}
+	}
 
 	public Account() {
 		super();
@@ -142,10 +159,8 @@ public class Account {
 	}
 	// GETTERS/SETTERS
 
-	
-
 	public List<Pet> getPetList() {
-		return petList;
+		return new ArrayList<>(petList);
 	}
 
 	public void setPetList(List<Pet> pets) {
@@ -175,8 +190,5 @@ public class Account {
 		Account other = (Account) obj;
 		return id == other.id;
 	}
-
-	
-
 
 }

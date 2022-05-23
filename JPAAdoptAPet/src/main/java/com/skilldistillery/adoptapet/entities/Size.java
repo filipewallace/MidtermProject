@@ -1,5 +1,6 @@
 package com.skilldistillery.adoptapet.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -34,6 +35,22 @@ public class Size {
 	// METHODS START
 	public Size() {
 		super();
+	}
+	
+	public void addBreed(Breed breed) {
+		if (breedList == null)
+			breedList = new ArrayList<>();
+		if (!breedList.contains(breed)) {
+			breedList.add(breed);
+		}
+		breed.setSize(this);
+	}
+
+	public void removeBreed(Breed breed) {
+		breed.setSize(null);
+		if (breedList != null) {
+			breedList.remove(breed);
+		}
 	}
 
 	// METHODS END
