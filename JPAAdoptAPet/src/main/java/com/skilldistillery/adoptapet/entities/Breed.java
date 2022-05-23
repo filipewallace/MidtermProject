@@ -1,5 +1,6 @@
 package com.skilldistillery.adoptapet.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,38 +15,51 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Breed {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="breed_name")
-	private String breedName;
-	
-	@Column(name="hypoallergenic")
-	private boolean isAllergic;
-	
-	private String description;
-	
-	@ManyToOne
-	@JoinColumn(name="size_id")
-	private Size size;
-	
-	@ManyToOne
-	@JoinColumn(name="category_id")
-	private Category category;
-	
-	@OneToMany(mappedBy="breed")
-	private List<Pet> petList;
-	
 
-	
+	@Column(name = "breed_name")
+	private String breedName;
+
+	@Column(name = "hypoallergenic")
+	private boolean isAllergic;
+
+	private String description;
+
+	@ManyToOne
+	@JoinColumn(name = "size_id")
+	private Size size;
+
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	private Category category;
+
+	@OneToMany(mappedBy = "breed")
+	private List<Pet> petList;
+
 	// METHOD STARTS
 	public Breed() {
 		super();
 	}
 
-	
+	public void addPet(Pet pet) {
+		if (petList == null)
+			petList = new ArrayList<>();
+		if (!petList.contains(pet)) {
+			petList.add(pet);
+		}
+		pet.setBreed(this);
+	}
+
+	public void removePet(Pet pet) {
+		pet.setBreed(null);
+		if (petList != null) {
+			petList.remove(pet);
+		}
+	}
+
 	// METHOD ENDS
 	public int getId() {
 		return id;
@@ -96,20 +110,12 @@ public class Breed {
 	}
 
 	public List<Pet> getPetList() {
-		return petList;
+		return new ArrayList<>(petList);
 	}
-
-
-
-
 
 	public void setPetList(List<Pet> petList) {
 		this.petList = petList;
 	}
-
-
-
-
 
 	@Override
 	public int hashCode() {
@@ -133,6 +139,5 @@ public class Breed {
 		return "Breed [id=" + id + ", breedName=" + breedName + ", isAllergic=" + isAllergic + ", description="
 				+ description + ", size=" + size + ", category=" + category + "]";
 	}
-	
-	
+
 }

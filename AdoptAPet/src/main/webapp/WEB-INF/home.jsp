@@ -11,8 +11,8 @@
 	<h1>THIS IS WHERE I WOULD PUT A HOME PAGE..... IF I HAD ONE</h1>
 
 	<form action="userPage.do" method="GET">
-		User ID: <input type="text" name="petName" /> <input type="submit"
-			value="Show User" />
+		Pet Name: <input type="text" name="petName" /> <input type="submit"
+			value="Show Pet" />
 	</form>
 
 	<form action="loginPage.do" method="GET">

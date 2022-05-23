@@ -1,5 +1,6 @@
 package com.skilldistillery.adoptapet.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,6 +30,21 @@ public class SexOfPet {
 	
 	public SexOfPet() {
 		super();
+	}
+	public void addPet(Pet pet) {
+		if (petList == null)
+			petList = new ArrayList<>();
+		if (!petList.contains(pet)) {
+			petList.add(pet);
+		}
+		pet.setSexOfPet(this);
+	}
+
+	public void removePet(Pet pet) {
+		pet.setSexOfPet(null);
+		if (petList != null) {
+			petList.remove(pet);
+		}
 	}
 	
  // METHODS END
