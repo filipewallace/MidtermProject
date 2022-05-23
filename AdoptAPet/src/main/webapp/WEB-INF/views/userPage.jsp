@@ -13,17 +13,22 @@
 	<div>
 
 
-		<h1>Users username: ${user.username }</h1>
 
+		<h1>Users username: ${user.username }</h1>
 
 		<c:choose>
 			<c:when test="${empty user.account.petList }">No Pets Yet
 		</c:when>
+		
 			<c:otherwise>
-				<c:forEach var="pet" items="${user.account.petList}">
-					<p>Pet is: ${pet.petName }</p>
-					<p>${pet.breed}</p>
-					<%-- <p>${user.account.petList.get(0).breed}</p> --%>
+					<c:forEach var="pet" items="${user.account.petList}">
+			<p>Pet is: ${pet.petName }</p>
+			<p>${pet.breed}</p>
+			<form action="deleted.do" method="GET">
+				<input type="hidden" name="id" value=${pet.id } /> <input
+					type="submit" class="button" value="Delete Pet" />
+			</form>
+		
 
 				</c:forEach>
 			</c:otherwise>

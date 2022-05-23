@@ -59,4 +59,18 @@ public class PetController {
 		return "redirect:userPageRedirect.do";
 	}
 //	private String updatePetListing(Model model, Pet Pet, )
+	
+	@RequestMapping(path="deleted.do", method = RequestMethod.GET)
+	public String deletePet(HttpSession session, Integer id, Model model) {
+		Pet pet = petDao.findById(id);
+		User user = (User) session.getAttribute("user");
+		user.getAccount().removeFilm(pet);
+		session.setAttribute("user", user);
+		
+		boolean deleted = petDao.deletePet(id);
+		model.addAttribute("deleted", deleted);
+		
+		
+		return "views/deletedPet";
+	}
 }

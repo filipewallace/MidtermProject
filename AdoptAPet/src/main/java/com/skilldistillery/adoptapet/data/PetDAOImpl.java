@@ -16,11 +16,11 @@ public class PetDAOImpl implements PetDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public List<Pet> showAllPets() {
 		String jpql = "SELECT pet FROM Pet pet";
-		
+
 		return em.createQuery(jpql, Pet.class).getResultList();
 	}
 
@@ -37,6 +37,25 @@ public class PetDAOImpl implements PetDAO {
 		pet = em.createQuery(jpql, Pet.class).setParameter("id", id).getSingleResult();
 		return pet;
 	}
-	
+
+	@Override
+	public boolean deletePet(Integer id) {
+		
+		boolean deleted = false;
+		Pet deletedPet = em.find(Pet.class, id);
+
+		if (deletedPet != null) {
+			em.remove(deletedPet);
+			deleted = !em.contains(deletedPet);
+		}
+		return deleted;
+	}
+
+	@Override
+	public Pet findById(Integer id) {
+		
+		
+		return em.find(Pet.class, id);
+	}
 
 }
