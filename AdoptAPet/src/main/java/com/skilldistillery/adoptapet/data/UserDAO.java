@@ -1,5 +1,6 @@
 package com.skilldistillery.adoptapet.data;
 
+import com.skilldistillery.adoptapet.entities.Account;
 import com.skilldistillery.adoptapet.entities.User;
 
 public interface UserDAO {
@@ -9,4 +10,6 @@ public interface UserDAO {
 	User createUser(User user);
 	User updateUser(User user);
 	boolean deleteUser(int id);
+	Account findAccountByID(int id);
+	Account updateAccount(Account account);
 }

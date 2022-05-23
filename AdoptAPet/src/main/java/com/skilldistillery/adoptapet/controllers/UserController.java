@@ -1,5 +1,9 @@
 package com.skilldistillery.adoptapet.controllers;
 
+import java.text.DateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,9 +83,25 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "updateUserInformation.do", method = RequestMethod.GET)
-	private String userInformationUpdate() {
-
+	private String userInformationUpdate(int id, HttpSession session, Model model) {
+		Account account = userDao.findAccountByID(id);
+		model.addAttribute("account" , account);
 		return "views/userInformationUpdate";
+	}
+	@RequestMapping(path = "updateMyInformation.do", method = RequestMethod.POST)
+	private String userUpdateMyInformation(Account account, String dateToBeChanged, RedirectAttributes redir, HttpSession session) {
+		System.out.println(account);
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate ld = LocalDate.parse(dateToBeChanged, dtf);
+		System.out.println("**********" + ld + "******************");
+		account.setDob(ld);
+		Account accountUpdated = userDao.updateAccount(account);
+		System.out.println(accountUpdated);
+		accountUpdated.getPetList().size();
+//		Account account = (User) session.getAttribute(null);
+		session.setAttribute("user", accountUpdated.getUser());
+		return "redirect:userPageRedirect.do";
+		
 	}
 
 	@RequestMapping(path = "logout.do")
