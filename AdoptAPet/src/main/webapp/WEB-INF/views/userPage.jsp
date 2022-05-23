@@ -8,6 +8,7 @@
 <title>User Page</title>
 </head>
 <body>
+<%@ include file="../nav.jsp" %>
 	<h1>This is a user page: BEHOLD!!!</h1>
 	<div>
 

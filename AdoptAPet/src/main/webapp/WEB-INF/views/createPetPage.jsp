@@ -7,6 +7,7 @@
 <title>Create Pet Listing</title>
 </head>
 <body>
+<%@ include file="../nav.jsp" %>
 	<h2>Create a Pet Listing:</h2>
 	
 	<form action="createPetRedirect.do" method="POST">

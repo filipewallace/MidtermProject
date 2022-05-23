@@ -8,6 +8,7 @@
 <title>I am Me</title>
 </head>
 <body>
+<%@ include file="../nav.jsp" %>
 <c:choose>
 <c:when test="${empty pet }">Invalid Pet</c:when>
 <c:otherwise>
