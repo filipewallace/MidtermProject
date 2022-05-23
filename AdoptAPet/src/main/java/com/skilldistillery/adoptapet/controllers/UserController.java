@@ -12,7 +12,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.adoptapet.data.UserDAO;
 import com.skilldistillery.adoptapet.entities.Account;
-import com.skilldistillery.adoptapet.entities.Address;
 import com.skilldistillery.adoptapet.entities.Role;
 import com.skilldistillery.adoptapet.entities.User;
 
@@ -50,13 +49,10 @@ public class UserController {
 
 	@RequestMapping(path = "createAccountRedirect.do", method = RequestMethod.POST)
 	private String createAccount(HttpSession session, User user, Account account, RedirectAttributes redir) {
-		Address address = new Address();
-		address.setId(1);
 		Role role = new Role();
 		role.setId(2);
 		user.setRole(role);
 		user.setActive(true);
-		account.setAddress(address);
 		account.setActive(true);
 		user.setAccount(account);
 		user = userDao.createUser(user);
@@ -80,6 +76,12 @@ public class UserController {
 		session.setAttribute("user", user);
 		redir.addFlashAttribute("user", user);
 		return "redirect:userPageRedirect.do";
+	}
+	
+	@RequestMapping(path = "updateUserInformation.do", method = RequestMethod.GET)
+	private String userInformationUpdate() {
+
+		return "views/userInformationUpdate";
 	}
 
 	@RequestMapping(path = "logout.do")
