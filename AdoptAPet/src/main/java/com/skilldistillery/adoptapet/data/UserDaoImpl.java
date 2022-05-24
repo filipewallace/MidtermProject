@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.adoptapet.entities.Account;
+import com.skilldistillery.adoptapet.entities.Address;
 import com.skilldistillery.adoptapet.entities.User;
 
 @Service
@@ -71,16 +72,31 @@ public class UserDaoImpl implements UserDAO {
 		updatedAccount.setEmail(account.getEmail());
 		updatedAccount.setPhoneNumber(account.getPhoneNumber());
 		updatedAccount.setDob(account.getDob());
-//		if(updatedAccount.getAddress().getPrimaryStreet() == null) {
-//		
-//		} else {
-//		updatedAccount.setAddress(account.getAddress());
-//		}
+
 		updatedAccount.setAboutMe(account.getAboutMe());
 		
 		return updatedAccount;
 	}
 
+	@Override
+	public Address updateMyAddress(Address address) {
+		Address updatedAddress = em.find(Address.class, address.getId());
+		
+		updatedAddress.setPrimaryStreet(address.getPrimaryStreet());
+		updatedAddress.setSecondaryStreet(address.getSecondaryStreet());
+		updatedAddress.setCity(address.getCity());
+		updatedAddress.setStateAbbreviation(address.getStateAbbreviation());
+		updatedAddress.setZipcode(address.getZipcode());
+		
+		return updatedAddress;  
+	}
+
+	@Override
+	public Address createAddress(Address address) {
+		em.persist(address);
+		
+		return address;
+	}
 
 
 }
