@@ -1,6 +1,7 @@
 package com.skilldistillery.adoptapet.controllers;
 
-import java.lang.ProcessBuilder.Redirect;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.adoptapet.data.PetDAO;
+import com.skilldistillery.adoptapet.data.UserDAO;
 import com.skilldistillery.adoptapet.entities.Account;
 import com.skilldistillery.adoptapet.entities.Pet;
 import com.skilldistillery.adoptapet.entities.User;
@@ -22,6 +24,8 @@ public class PetController {
 
 	@Autowired
 	private PetDAO petDao;
+	@Autowired
+	private UserDAO userDao;
 	
 	@RequestMapping(path = "showPetPage.do")
 	public String showPet(Model model, Integer id) {
@@ -44,21 +48,24 @@ public class PetController {
 	}
 
 	@RequestMapping(path = "createPetRedirect.do", method = RequestMethod.POST)
-	private String createPet(HttpSession session, Pet pet, RedirectAttributes redir) {
+	private String createPet(String breedName, String sexOfPetType, HttpSession session, Pet pet, RedirectAttributes redir, String dateofbirth) {
+		System.out.println("**********SEX/BREED*******" + breedName + " " + sexOfPetType);
+		DateTimeFormatter dtformatter = DateTimeFormatter.ISO_DATE;
+		LocalDate ld = LocalDate.parse(dateofbirth, dtformatter);
+		pet.setDob(ld);
+		
 		User user = (User) session.getAttribute("user");
 		user.getAccount().addPet(pet);
 
-//		pet.setAccount(user.getAccount());
 
-		pet = petDao.createPetListing(pet);
+		pet = petDao.createPetListing(pet, sexOfPetType, breedName);
 		user.getAccount().getPetList().add(pet);
 		session.setAttribute("user", user);
 
-		redir.addFlashAttribute("pet", pet);
+//		redir.addFlashAttribute("pet", pet);
 
 		return "redirect:userPageRedirect.do";
 	}
-//	private String updatePetListing(Model model, Pet Pet, )
 	
 	@RequestMapping(path="deleted.do", method = RequestMethod.GET)
 	public String deletePet(HttpSession session, Integer id, Model model) {
@@ -72,5 +79,24 @@ public class PetController {
 		
 		
 		return "views/deletedPet";
+	}
+	
+	@RequestMapping(path="updated.do", method = RequestMethod.GET)
+	public String updatePetGet(Integer id, Model model) {
+		Pet pet = petDao.findById(id);
+		model.addAttribute("pet", pet);
+		
+		return "views/updatePetPage";
+	}
+	@RequestMapping(path="actuallyUpdating.do", method = RequestMethod.POST)
+	public String updatePet(HttpSession session, Pet pet) {
+		
+		petDao.updatedPet(pet);
+		User user = (User) session.getAttribute("user");
+		User managedUser = userDao.findById(user.getId());
+		managedUser.getAccount().getPetList().size();
+		session.setAttribute("user", managedUser);
+		
+		return "redirect:userPageRedirect.do";
 	}
 }

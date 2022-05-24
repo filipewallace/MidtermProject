@@ -7,8 +7,9 @@ import com.skilldistillery.adoptapet.entities.Pet;
 public interface PetDAO {
 
 	List<Pet> showAllPets();
-	Pet createPetListing(Pet pet);
+	Pet createPetListing(Pet pet, String sexOfPetType, String breedName);
 	Pet showPet(Integer id);
 	boolean deletePet(Integer id);
 	Pet findById(Integer id);
+	Pet updatedPet(Pet pet);
 }
