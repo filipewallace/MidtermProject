@@ -31,7 +31,7 @@ public class UserDaoImpl implements UserDAO {
 //		return null;
 ////		return em.find(User.class, username, password);
 //	}
-	
+	 
 	@Override
 	public User findByUsernameAndPassword(String username, String password) {
 		User u = null;
@@ -46,16 +46,13 @@ public class UserDaoImpl implements UserDAO {
 		return u;
 	}
 	
-<<<<<<< HEAD
 
-=======
 	@Override
 	public Account findAccountByID(int id) {
 //		String query = "SELECT a FROM Account a WHERE a.id = :id";
 		Account account = em.find(Account.class, id);
 		return account;
 	}
->>>>>>> 432d8e8d537f698ed1f04f36373e3d49b91a3454
 	@Override
 	public User createUser(User user) {
 		em.persist(user);
