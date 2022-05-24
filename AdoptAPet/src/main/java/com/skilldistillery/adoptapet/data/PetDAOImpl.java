@@ -8,7 +8,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.adoptapet.entities.Breed;
 import com.skilldistillery.adoptapet.entities.Pet;
+import com.skilldistillery.adoptapet.entities.SexOfPet;
 
 @Service
 @Transactional
@@ -25,7 +27,14 @@ public class PetDAOImpl implements PetDAO {
 	}
 
 	@Override
-	public Pet createPetListing(Pet pet) {
+	public Pet createPetListing(Pet pet, String sexOfPetType, String breedName) {
+		SexOfPet sex = em.find(SexOfPet.class, Integer.parseInt(sexOfPetType));
+		
+		Breed breed = em.find(Breed.class, Integer.parseInt(breedName));
+		
+		pet.setSexOfPet(sex);
+		pet.setBreed(breed);
+		
 		em.persist(pet);
 		return pet;
 	}
@@ -56,6 +65,24 @@ public class PetDAOImpl implements PetDAO {
 		
 		
 		return em.find(Pet.class, id);
+	}
+
+	@Override
+	public Pet updatedPet(Pet pet) {
+		Pet updatedPet = em.find(Pet.class, pet.getId());
+		updatedPet.setPetName(pet.getPetName());
+		updatedPet.setVaccinatedStatus(pet.isVaccinatedStatus());
+		updatedPet.setImageLink(pet.getImageLink());
+		updatedPet.setDob(pet.getDob());
+		updatedPet.setWeight(pet.getWeight());
+		updatedPet.setPersonality(pet.getPersonality());
+		updatedPet.setNeutered(pet.isNeutered());
+		updatedPet.setAboutMe(pet.getAboutMe());
+		
+		updatedPet.setBreed(em.find(Breed.class, pet.getBreed().getId()));
+		updatedPet.setSexOfPet(em.find(SexOfPet.class, pet.getSexOfPet().getId()));
+		
+		return null;
 	}
 
 }

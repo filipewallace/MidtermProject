@@ -73,7 +73,7 @@ public class Size {
 
 	@Override
 	public String toString() {
-		return "Size [id=" + id + ", petSize=" + petSize + "]";
+		return "\n" + petSize;
 	}
 
 	@Override
