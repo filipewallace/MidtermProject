@@ -13,8 +13,8 @@
 	<form action="actuallyUpdating.do" method="POST">
 	<input type="text" name="id" value="${pet.id }" hidden="true">
 	
-	Please enter your pet's name:
-	 <input type="text" name="petName" /><br><br>
+	<label for="petName">Please enter your pet's name:</label>
+	 <input type="text" name="petName" value= "${pet.petName }" /><br><br>
 	 
 	 Please enter your pet's vaccination status:
 	 <select name="vaccinatedStatus" id="vaccinatedStatus">
@@ -22,14 +22,14 @@
 	<option value="false">No</option>	
 	 </select><br><br>
 	 
-	 Please include a image url of your pet
-	<input type="text" name="imageLink"/><br><br>
+	 <label for="imageLink">Please include a image url of your pet</label>
+	<input type="url" name="imageLink" value= "${pet.imageLink }"/><br><br>
 	
-	Please enter your pet's weight:
-	 <input type="number" name="weight" step=".01" required/><br><br>
+	<label for="weight">Please enter your pet's weight:</label>
+	 <input type="number" name="weight" step=".01" value= "${pet.weight }" required/><br><br>
 	 
-	 Please enter your pet's personality:
-	 <input type="text" name="personality"/><br><br>
+	 <label for="personality">Please enter your pet's personality:</label>
+	 <input type="text" name="personality" value= "${pet.personality }"/><br><br>
 	
 	Is your pet neutered?
 	<select name="neutered" id="neutered">
@@ -37,8 +37,8 @@
 	<option value="false">False</option>
 	</select><br><br>
 	
-	Tell us about your pet:
-	<input type="text" name="aboutMe"/><br><br>
+	<label for="aboutMe">Tell us about your pet:</label>
+	<input type="text" name="aboutMe" value= "${pet.personality }"/><br><br>
 	
 	Please enter your animals breed:
 	<select name="breed.id" id="breedName">
