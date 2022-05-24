@@ -1,5 +1,6 @@
 package com.skilldistillery.adoptapet.entities;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
  
 @Entity
-public class Pet {
+public class Pet implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -29,7 +30,6 @@ public class Pet {
 	
 	@Column(name="date_of_birth")
 	private LocalDate dob;
-	
 	private double weight;
 	
 	@Column(name="temperament")

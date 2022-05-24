@@ -1,6 +1,5 @@
 package com.skilldistillery.adoptapet.controllers;
 
-import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.adoptapet.data.PetDAO;
+import com.skilldistillery.adoptapet.data.UserDAO;
 import com.skilldistillery.adoptapet.entities.Account;
 import com.skilldistillery.adoptapet.entities.Pet;
 import com.skilldistillery.adoptapet.entities.User;
@@ -22,6 +22,8 @@ public class PetController {
 
 	@Autowired
 	private PetDAO petDao;
+	@Autowired
+	private UserDAO userDao;
 	
 	@RequestMapping(path = "showPetPage.do")
 	public String showPet(Model model, Integer id) {
@@ -72,5 +74,24 @@ public class PetController {
 		
 		
 		return "views/deletedPet";
+	}
+	
+	@RequestMapping(path="updated.do", method = RequestMethod.GET)
+	public String updatePetGet(Integer id, Model model) {
+		Pet pet = petDao.findById(id);
+		model.addAttribute("pet", pet);
+		
+		return "views/updatePetPage";
+	}
+	@RequestMapping(path="actuallyUpdating.do", method = RequestMethod.POST)
+	public String updatePet(HttpSession session, Pet pet) {
+		
+		petDao.updatedPet(pet);
+		User user = (User) session.getAttribute("user");
+		User managedUser = userDao.findById(user.getId());
+		managedUser.getAccount().getPetList().size();
+		session.setAttribute("user", managedUser);
+		
+		return "redirect:userPageRedirect.do";
 	}
 }

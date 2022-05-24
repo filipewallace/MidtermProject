@@ -11,4 +11,5 @@ public interface PetDAO {
 	Pet showPet(Integer id);
 	boolean deletePet(Integer id);
 	Pet findById(Integer id);
+	Pet updatedPet(Pet pet);
 }
