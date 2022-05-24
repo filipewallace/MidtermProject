@@ -18,16 +18,13 @@
 	 
 	 Please enter your pet's vaccination status:
 	 <select name="vaccinatedStatus" id="vaccinatedStatus">
-	<option value="true">True</option>
-	<option value="false">False</option>	
-	 </select>
+	<option value="true">Yes</option>
+	<option value="false">No</option>	
+	 </select><br><br>
 	 
 	 Please include a image url of your pet
 	<input type="text" name="imageLink"/><br><br>
-	<input type="submit" value="Create Pet Listing">
 	
-	
-	 
 	Please enter your pet's weight:
 	 <input type="text" name="weight"/><br><br>
 	 
@@ -40,7 +37,7 @@
 	<option value="false">False</option>
 	</select><br><br>
 	
-	Please enter a short description of your pet:
+	Tell us about your pet:
 	<input type="text" name="aboutMe"/><br><br>
 	
 	Please enter your animals breed:
@@ -51,15 +48,19 @@
 	<option value="4">Mutt Small Dog</option>
 	</select><br><br>
 	
+	What type of animal is your pet?
+	<select name="typeOfPet.id" id="typeOfPet">
+	<option value="1">Dog</option>
+	<option value="2">Cat</option>
+	<option value="3">Bird</option>
+	<option value="4">Hamster</option>
+	</select><br><br>
+	
 	Is your animal male or female?
 	<select name="sexOfPet.id" id="sexOfPet">
 	<option value="1">Male</option>
 	<option value="2">Female</option>
-	
 	</select><br><br>
-	
-	
-	
 	
 	<input type="submit" value="Update Listing">
 	

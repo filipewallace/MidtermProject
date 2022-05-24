@@ -37,8 +37,10 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "userPageRedirect.do")
-	public String showUserRedirect() {
-
+	public String showUserRedirect(HttpSession session) {
+		User user2 = (User) session.getAttribute("user");
+		System.out.println("****************ACCOUNT*********************" + user2.getAccount());
+		System.out.println("****************PET LIST SIZE*********************" + user2.getAccount().getPetList().size());
 		return "views/userPage";
 	}
 

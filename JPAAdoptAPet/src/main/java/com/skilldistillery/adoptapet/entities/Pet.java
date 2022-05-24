@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
  
 @Entity
 public class Pet implements Serializable {
@@ -30,6 +32,7 @@ public class Pet implements Serializable {
 	
 	@Column(name="date_of_birth")
 	private LocalDate dob;
+	
 	private double weight;
 	
 	@Column(name="temperament")

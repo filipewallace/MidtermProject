@@ -1,5 +1,7 @@
 package com.skilldistillery.adoptapet.controllers;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -46,21 +48,24 @@ public class PetController {
 	}
 
 	@RequestMapping(path = "createPetRedirect.do", method = RequestMethod.POST)
-	private String createPet(HttpSession session, Pet pet, RedirectAttributes redir) {
+	private String createPet(String breedName, String sexOfPetType, HttpSession session, Pet pet, RedirectAttributes redir, String dateofbirth) {
+		System.out.println("**********SEX/BREED*******" + breedName + " " + sexOfPetType);
+		DateTimeFormatter dtformatter = DateTimeFormatter.ISO_DATE;
+		LocalDate ld = LocalDate.parse(dateofbirth, dtformatter);
+		pet.setDob(ld);
+		
 		User user = (User) session.getAttribute("user");
 		user.getAccount().addPet(pet);
 
-//		pet.setAccount(user.getAccount());
 
-		pet = petDao.createPetListing(pet);
+		pet = petDao.createPetListing(pet, sexOfPetType, breedName);
 		user.getAccount().getPetList().add(pet);
 		session.setAttribute("user", user);
 
-		redir.addFlashAttribute("pet", pet);
+//		redir.addFlashAttribute("pet", pet);
 
 		return "redirect:userPageRedirect.do";
 	}
-//	private String updatePetListing(Model model, Pet Pet, )
 	
 	@RequestMapping(path="deleted.do", method = RequestMethod.GET)
 	public String deletePet(HttpSession session, Integer id, Model model) {

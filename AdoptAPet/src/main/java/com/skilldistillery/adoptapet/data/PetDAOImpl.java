@@ -27,7 +27,14 @@ public class PetDAOImpl implements PetDAO {
 	}
 
 	@Override
-	public Pet createPetListing(Pet pet) {
+	public Pet createPetListing(Pet pet, String sexOfPetType, String breedName) {
+		SexOfPet sex = em.find(SexOfPet.class, Integer.parseInt(sexOfPetType));
+		
+		Breed breed = em.find(Breed.class, Integer.parseInt(breedName));
+		
+		pet.setSexOfPet(sex);
+		pet.setBreed(breed);
+		
 		em.persist(pet);
 		return pet;
 	}
@@ -74,7 +81,6 @@ public class PetDAOImpl implements PetDAO {
 		
 		updatedPet.setBreed(em.find(Breed.class, pet.getBreed().getId()));
 		updatedPet.setSexOfPet(em.find(SexOfPet.class, pet.getSexOfPet().getId()));
-		
 		
 		return null;
 	}

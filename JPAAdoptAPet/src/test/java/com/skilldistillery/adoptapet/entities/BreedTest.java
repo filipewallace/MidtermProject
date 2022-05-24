@@ -45,6 +45,7 @@ class BreedTest {
 	void test_basic_mapping() {
 		assertNotNull(breed);
 		assertEquals("Golden Retriever", breed.getBreedName());
+		assertTrue(breed.getIsAllergic());
 	}
 	@Test
 	void test_breed_to_pet_mapping() {
