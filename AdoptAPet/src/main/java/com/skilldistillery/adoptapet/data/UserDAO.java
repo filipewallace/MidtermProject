@@ -1,7 +1,10 @@
 package com.skilldistillery.adoptapet.data;
 
+import java.util.List;
+
 import com.skilldistillery.adoptapet.entities.Account;
 import com.skilldistillery.adoptapet.entities.Address;
+import com.skilldistillery.adoptapet.entities.Pet;
 import com.skilldistillery.adoptapet.entities.User;
 
 public interface UserDAO {
@@ -15,4 +18,6 @@ public interface UserDAO {
 	Account updateAccount(Account account);
 	Address updateMyAddress(Address address);
 	Address createAddress(Address address);
+	List<Pet> showAllPets();
+	List<User> showAllUsers();
 }
