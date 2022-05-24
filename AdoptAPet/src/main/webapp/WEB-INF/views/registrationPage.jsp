@@ -13,13 +13,13 @@
 	<input type="text" name="username" required/>
 	<h1>Please enter password:</h1>
 	<input type="text" name="password" required/>
-	<h1>First Name: </h1>
+ 	<h1>First Name: </h1>
 	<input type="text" name="firstName"required/>
 	<h1>Last Name: </h1>
 	<input type="text" name="lastName" required/>
 	<h1>Email: </h1>
 	<input type="text" name="email" required/>
-	
+	 
 	
 	<input type="submit" value="Submit"/>
 	

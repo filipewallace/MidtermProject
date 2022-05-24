@@ -1,5 +1,9 @@
 package com.skilldistillery.adoptapet.controllers;
 
+import java.text.DateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,13 +54,13 @@ public class UserController {
 
 	@RequestMapping(path = "createAccountRedirect.do", method = RequestMethod.POST)
 	private String createAccount(HttpSession session, User user, Account account, RedirectAttributes redir) {
-		Address address = new Address();
-		address.setId(1);
 		Role role = new Role();
+		Address address = new Address();
+		address = userDao.createAddress(address);
 		role.setId(2);
 		user.setRole(role);
-		user.setActive(true);
 		account.setAddress(address);
+		user.setActive(true);
 		account.setActive(true);
 		user.setAccount(account);
 		user = userDao.createUser(user);
@@ -80,6 +84,39 @@ public class UserController {
 		session.setAttribute("user", user);
 		redir.addFlashAttribute("user", user);
 		return "redirect:userPageRedirect.do";
+	}
+	
+	@RequestMapping(path = "updateUserInformation.do", method = RequestMethod.GET)
+	private String userInformationUpdate(int id, HttpSession session, Model model) {
+		Account account = userDao.findAccountByID(id);
+		model.addAttribute("account" , account);
+		return "views/userInformationUpdate";
+	}
+	@RequestMapping(path = "updateMyInformation.do", method = RequestMethod.POST)
+	private String userUpdateMyInformation(Account account, String dateToBeChanged, RedirectAttributes redir, HttpSession session) {
+		System.out.println(account);
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate ld = LocalDate.parse(dateToBeChanged, dtf);
+		System.out.println("**********" + ld + "******************");
+		account.setDob(ld);
+		Account accountUpdated = userDao.updateAccount(account);
+		System.out.println(accountUpdated);
+		accountUpdated.getPetList().size();
+//		Account account = (User) session.getAttribute(null);
+		session.setAttribute("user", accountUpdated.getUser());
+		return "redirect:userPageRedirect.do";
+		
+	}
+	
+	@RequestMapping(path = "updateMyAddress.do", method = RequestMethod.POST)
+	private String userUpdateAddress(Address address, RedirectAttributes redir, HttpSession session) {
+		System.out.println(address.getPrimaryStreet());
+		Address addressUpdate = userDao.updateMyAddress(address);
+		System.out.println(addressUpdate.getPrimaryStreet());
+		
+		session.setAttribute("address", addressUpdate.getId());
+		
+		return "redirect:userPageRedirect.do"; 
 	}
 
 	@RequestMapping(path = "logout.do")
