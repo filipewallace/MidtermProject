@@ -49,6 +49,7 @@ public class PetController {
 
 	@RequestMapping(path = "createPetRedirect.do", method = RequestMethod.POST)
 	private String createPet(String breedName, String sexOfPetType, HttpSession session, Pet pet, RedirectAttributes redir, String dateofbirth) {
+		
 		System.out.println("**********SEX/BREED*******" + breedName + " " + sexOfPetType);
 		DateTimeFormatter dtformatter = DateTimeFormatter.ISO_DATE;
 		LocalDate ld = LocalDate.parse(dateofbirth, dtformatter);
@@ -59,7 +60,6 @@ public class PetController {
 
 
 		pet = petDao.createPetListing(pet, sexOfPetType, breedName);
-		user.getAccount().getPetList().add(pet);
 		session.setAttribute("user", user);
 
 //		redir.addFlashAttribute("pet", pet);
@@ -83,9 +83,9 @@ public class PetController {
 	
 	@RequestMapping(path="updated.do", method = RequestMethod.GET)
 	public String updatePetGet(Integer id, Model model) {
+		System.out.println("***************" + id + "********************");
 		Pet pet = petDao.findById(id);
 		model.addAttribute("pet", pet);
-		
 		return "views/updatePetPage";
 	}
 	@RequestMapping(path="actuallyUpdating.do", method = RequestMethod.POST)

@@ -30,7 +30,7 @@
 		<li>About me: ${pet.aboutMe }</li>
 		<li>Sex: ${pet.sexOfPet }</li>
 		 <li>Pet's Breed: ${pet.breed }<br> 
-			 Is Hypoallergenic: ${pet.breed.isAllergic }<br> 
+			Is Hypoallergenic: ${pet.breed.isAllergic }<br> 
 			Breed's Size: ${pet.breed.size.petSize }<br>
 			Type of Animal: ${pet.breed.category.typeOfPet }<br> 
 			Description of Breed: ${pet.breed.description }</li> 
@@ -49,9 +49,6 @@
 
 		
 	</div> 
-	<form action="createPet.do" method="GET">
-		<input type="submit" value="Create Pet Listing" />
-	</form>
 	<div>
 
 		<c:choose>
@@ -73,9 +70,6 @@
 		</c:choose>
 
 	</div>
-
-
-
 
 </body>
 </html>

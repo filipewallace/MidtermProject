@@ -26,7 +26,7 @@
 	<input type="text" name="imageLink"/><br><br>
 	
 	Please enter your pet's weight:
-	 <input type="text" name="weight"/><br><br>
+	 <input type="number" name="weight" step=".01" required/><br><br>
 	 
 	 Please enter your pet's personality:
 	 <input type="text" name="personality"/><br><br>
