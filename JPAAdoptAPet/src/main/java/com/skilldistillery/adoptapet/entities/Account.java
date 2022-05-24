@@ -54,21 +54,21 @@ public class Account {
 	@OneToMany(mappedBy = "account")
 	private List<Pet> petList;
 
-
 	// METHODS
-	
+
 	public void addPet(Pet pet) {
 		if (petList == null)
 			petList = new ArrayList<>();
 		if (!petList.contains(pet)) {
 			petList.add(pet);
-			
+
 		}
 		pet.setAccount(this);
 	}
+
 	public void removeFilm(Pet pet) {
 		pet.setAccount(null);
-		if(petList != null) {
+		if (petList != null) {
 			petList.remove(pet);
 		}
 	}
@@ -160,7 +160,9 @@ public class Account {
 	// GETTERS/SETTERS
 
 	public List<Pet> getPetList() {
-		return new ArrayList<>(petList);
+		List<Pet> defensivecopy = new ArrayList<Pet>();
+		defensivecopy = petList;
+		return defensivecopy;
 	}
 
 	public void setPetList(List<Pet> pets) {

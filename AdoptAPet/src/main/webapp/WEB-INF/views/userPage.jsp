@@ -10,14 +10,17 @@
 <body>
 	<%@ include file="../nav.jsp"%>
 	<h1>This is a user page: BEHOLD!!!</h1>
-	<h3>${user.account }</h3>
-	<h3>${user.account.petList }</h3>
 	 <div>
 
+
+
 		<h1>Users username: ${user.username }</h1>
+	<c:choose>
+			<c:when test="${empty user.account.petList }">No Pets Yet
+		</c:when>
+		<c:otherwise>
 		
 		<c:forEach var="pet" items="${user.account.petList}">
-		<h1>${pet }</h1>
 		 <ol>
 		<li>Name : ${pet.petName }</li>
 		<li>Vaccination Status: ${pet.vaccinatedStatus }</li>
@@ -41,18 +44,41 @@
 					type="submit" class="button" value="Update Pet" />
 			</form> 
 		</c:forEach>
+	</c:otherwise>
+</c:choose>
 
 		
 	</div> 
 	<form action="createPet.do" method="GET">
 		<input type="submit" value="Create Pet Listing" />
 	</form>
+	<div>
+
+		<c:choose>
+			<c:when test="${empty sessionScope.user.account.phoneNumber }"> Please Update your information before adding pets!
+							<form action="updateUserInformation.do" method="GET">
+					<input type="submit" value="Update Information"> <input
+						name="id" value="${user.account.id }" hidden />
+				</form>
+
+			</c:when>
+			<c:otherwise>
+
+				<form action="createPet.do" method="GET">
+					<input type="submit" value="Create Pet Listing">
+				</form>
+				<form action="updateUserInformation.do" method="GET">
+					<input type="submit" value="Update Information"> <input
+						name="id" value="${user.account.id }" hidden />
+				</form>
+
+			</c:otherwise>
+		</c:choose>
+
+	</div>
 
 	<form action="logout.do" method="GET">
 		<input type="submit" value="Log Out" />
-	</form>
-	<form action="home.do" method="GET">
-		<input type="submit" value="Home" />
 	</form>
 
 
