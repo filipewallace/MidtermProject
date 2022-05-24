@@ -92,7 +92,7 @@ public class SexOfPet {
 	}
 	@Override
 	public String toString() {
-		return "SexOfPet [id=" + id + ", maleOrFemale=" + maleOrFemale + "]";
+		return maleOrFemale;
 	}
 	
 	

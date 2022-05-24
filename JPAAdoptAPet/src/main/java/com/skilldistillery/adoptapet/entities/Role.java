@@ -71,10 +71,10 @@ public class Role {
 
 
 
-	@Override
-	public String toString() {
-		return "Role [id=" + id + ", roleName=" + roleName + ", userList=" + userList + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Role [id=" + id + ", roleName=" + roleName + ", userList=" + userList + "]";
+//	}
 
 	public List<User> getUserList() {
 		return userList;

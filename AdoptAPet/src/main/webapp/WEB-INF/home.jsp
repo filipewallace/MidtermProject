@@ -15,15 +15,7 @@
 			value="Show Pet" />
 	</form>
 
-	<form action="loginPage.do" method="GET">
-		<input type="submit" value="Login" />
-	</form>
-	<form action="createAccount.do" method="GET">
-		<input type="submit" value="Create Account" />
-	</form>
-	<form action="showAllPets.do" method="GET">
-		<input type="submit" value="Pet List" />
-	</form>
+
 
 </body>
 </html>

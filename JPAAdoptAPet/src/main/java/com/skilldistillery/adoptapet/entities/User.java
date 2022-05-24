@@ -40,11 +40,11 @@ public class User {
 
 	// METHODS END
 
-//	@Override
-//	public String toString() {
-//		return "User [id=" + id + ", username=" + username + ", password=" + password + ", active=" + active
-//				+ ", account=" + account + ", role=" + role + "]";
-//	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", active=" + active
+				+ ", account=" + account.getFirstName() + ", role=" + role + "]";
+	}
 
 	public int getId() {
 		return id;

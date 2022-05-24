@@ -77,7 +77,7 @@ public class Breed {
 		this.breedName = breedName;
 	}
 
-	public boolean isAllergic() {
+	public boolean getIsAllergic() {
 		return isAllergic;
 	}
 
@@ -136,8 +136,7 @@ public class Breed {
 
 	@Override
 	public String toString() {
-		return "Breed [id=" + id + ", breedName=" + breedName + ", isAllergic=" + isAllergic + ", description="
-				+ description + ", size=" + size + ", category=" + category + "]";
+		return breedName; 
 	}
 
 }
