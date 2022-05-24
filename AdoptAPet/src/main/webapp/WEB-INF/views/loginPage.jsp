@@ -7,7 +7,10 @@
 <title>Login</title>
 </head>
 <body>
-<%@ include file="../nav.jsp" %>
+	<form action="home.do" method="GET">
+		<input type="submit" value="Home" />
+	</form>
+	
 	<form action="loginAttempt.do" method="POST">
 		<h1>Please enter username:</h1>
 		<input type="text" name="username" />
@@ -15,7 +18,5 @@
 		<input type="text" name="password" /> <input type="submit"
 			value="Login" />
 	</form>
-	<form action="home.do" method="GET">
-		<input type="submit" value="Home" />
-	</form>
+
 </body>

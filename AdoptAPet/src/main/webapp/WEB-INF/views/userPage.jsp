@@ -67,19 +67,13 @@
 				<form action="createPet.do" method="GET">
 					<input type="submit" value="Create Pet Listing">
 				</form>
-				<form action="updateUserInformation.do" method="GET">
-					<input type="submit" value="Update Information"> <input
-						name="id" value="${user.account.id }" hidden />
-				</form>
+
 
 			</c:otherwise>
 		</c:choose>
 
 	</div>
 
-	<form action="logout.do" method="GET">
-		<input type="submit" value="Log Out" />
-	</form>
 
 
 

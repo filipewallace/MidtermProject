@@ -10,11 +10,6 @@
 	<%@ include file="../nav.jsp"%>
 	<p>
 	Pet has successfully been deleted!</p>
-	
-  
-	<form action="userPageRedirect.do" method="GET">
-		<input type="submit" value="Go Back"/>
-	</form>
 		
 </body>
 </html>
