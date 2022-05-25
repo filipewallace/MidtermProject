@@ -68,9 +68,18 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public User updateUser(User user) {
-		// TODO Auto-generated method stub
+	public User updateUser(int id) {
+		User user = em.find(User.class, id);
 		return user;
+	}
+	
+	@Override
+	public User adminUpdateUser(User user) {
+		User updatedUser = em.find(User.class, user.getId());
+		
+		updatedUser.setUsername(user.getUsername());
+		updatedUser.setPassword(user.getPassword());
+		return updatedUser;
 	}
 
 	@Override
@@ -121,6 +130,8 @@ public class UserDaoImpl implements UserDAO {
 		
 		return address;
 	}
+
+
 
 
 }

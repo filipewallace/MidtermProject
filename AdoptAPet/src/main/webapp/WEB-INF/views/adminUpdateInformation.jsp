@@ -9,14 +9,16 @@
 </head>
 <body>
 	<%@ include file="../nav.jsp"%>
-<%-- 	<c:choose>
-		<c:when test="${empty pet }">Invalid Pet</c:when>
-		<c:otherwise>
-Name: ${pet.petName }
-Breed: ${pet.breed.breedName }
-</c:otherwise>
-	</c:choose> --%>
-	
-	
+	<form action="updateUserInformationAsAdmin.do" method="POST">
+		<label for="username"> Username: </label><input type="text"
+			name="username" value="${adminToUpdate.username }" required><br>
+
+		<label for="password"> Password: </label><input type="text"
+			name="password" value="${adminToUpdate.password }" required><br>
+
+		<input type="text" name="id" value="${adminToUpdate.id}" hidden>
+		<input type="submit" name="user" value="Submit" />
+
+	</form>
 </body>
 </html>

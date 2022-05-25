@@ -12,7 +12,7 @@ public interface UserDAO {
 	User findById(int userId);
 	User findByUsernameAndPassword(String username, String password);
 	User createUser(User user);
-	User updateUser(User user);
+	User updateUser(int id);
 	boolean deleteUser(int id);
 	Account findAccountByID(int id);
 	Account updateAccount(Account account);
@@ -20,4 +20,5 @@ public interface UserDAO {
 	Address createAddress(Address address);
 	List<Pet> showAllPets();
 	List<User> showAllUsers();
+	User adminUpdateUser(User user);
 }

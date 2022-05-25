@@ -40,11 +40,7 @@ public class UserController {
 		User user = userDao.findById(id);
 		model.addAttribute("user", user);
 		if(user.getRole().getId()==1){
-			List<Pet> petList = userDao.showAllPets(); 
-			model.addAttribute("petList", petList);
-			
-			List<User> userList = userDao.showAllUsers();
-			model.addAttribute("userList", userList);
+			adminAttributes(model);
 			return "views/adminPage"; 
 		}
 		return "views/userPage";
@@ -90,21 +86,26 @@ public class UserController {
 
 	@RequestMapping(path = "loginAttempt.do", method = RequestMethod.POST)
 	private String loginAttempt(String username, String password, RedirectAttributes redir, HttpSession session, Model model) {
+		User user = null;
 
-		User user = userDao.findByUsernameAndPassword(username, password);
-		user.getAccount().getPetList().size();
-		
-		session.setAttribute("user", user);
-		if(user.getRole().getId()==1){
-			List<Pet> petList = userDao.showAllPets(); 
-			model.addAttribute("petList", petList);
-			
-			List<User> userList = userDao.showAllUsers();
-			model.addAttribute("userList", userList);
-			return "views/adminPage"; 
+		try {
+			user = userDao.findByUsernameAndPassword(username, password);
+			user.getAccount().getPetList().size();
+		} catch (NullPointerException e) {
+			return "views/failedLogin";
 		}
-		redir.addFlashAttribute("user", user);
-		return "redirect:userPageRedirect.do"; 
+		
+		if (user.isActive()) {
+			session.setAttribute("user", user);
+			if (user.getRole().getId() == 1) {
+				adminAttributes(model);
+				return "views/adminPage";
+			}
+			redir.addFlashAttribute("user", user);
+			return "redirect:userPageRedirect.do";
+		} else {
+			return "views/failedLogin";
+		}
 	}
 	
 	@RequestMapping(path = "updateUserInformation.do", method = RequestMethod.GET)
@@ -141,16 +142,40 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "adminUpdateInformation.do")
-	private String adminUpdateUserInfo(User user, RedirectAttributes redir, HttpSession session) {
-		User adminToUpdate = userDao.updateUser(user); 
-		session.setAttribute("user", adminToUpdate); 
-		return "redirect:"; 
+	private String adminUpdateUserInfo(int id, RedirectAttributes redir, HttpSession session) {
+		User adminToUpdate = userDao.updateUser(id); 
+		
+		session.setAttribute("adminToUpdate", adminToUpdate); 
+		
+		return "views/adminUpdateInformation"; 
+	}
+	
+	@RequestMapping(path = "updateUserInformationAsAdmin.do")
+	private String adminFormUpdateSubmit(User user, RedirectAttributes redir, HttpSession session, Model model) {
+		
+		User user2 = userDao.adminUpdateUser(user);
+		user2.getId();
+		
+		
+		adminAttributes(model);
+		
+		return "views/adminPage";
+	}
+
+	private void adminAttributes(Model model) {
+		List<Pet> petList = userDao.showAllPets(); 
+		model.addAttribute("petList", petList);
+		
+		List<User> userList = userDao.showAllUsers();
+		model.addAttribute("userList", userList);
 	}
 	
 	@RequestMapping(path = "adminUpdateActiveStatus.do")
-	private String adminDeleteUser(int id, RedirectAttributes redir, HttpSession session) {
+	private String adminDeleteUser(int id, RedirectAttributes redir, HttpSession session, Model model) {
 		
 		boolean adminToSetToInactive = userDao.deleteUser(id); 
+		
+		adminAttributes(model);
 		
 		return "views/adminPage"; 
 	}
@@ -170,3 +195,4 @@ public class UserController {
 	}
 
 }
+
