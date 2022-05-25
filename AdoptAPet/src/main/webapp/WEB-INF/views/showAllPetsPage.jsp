@@ -7,15 +7,22 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
+<style>
+.resize{
+width: 10%;
+height: auto;
+}
+</style>
 </head>
 <body>
 <%@ include file="../nav.jsp" %>
 	<ul>
 		<c:forEach var="pet" items="${petList }">
-			<li>Name:<a href="showPetPage.do?id=${pet.id }">
+		<li> <img class="resize" src= "${pet.imageLink }" > <br>
+		
+			<a href="showPetPage.do?id=${pet.id }">
 					${pet.petName } </a>
 			</li>
-			<li>Breed: ${pet.breed.breedName }</li>
 
 			<%--   <form action="showPetPage.do" method="GET">
 			<input type="submit" id="${pet.id }" value="Show Me" />  --%>
