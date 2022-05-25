@@ -22,7 +22,7 @@
 	 <select name="vaccinatedStatus" id="vaccinatedStatus"required >
 	<option value="true">True</option>
 	<option value="false">False</option>	
-	 </select>
+	 </select><br><br>
 	 
 	  Please include a image url of your pet
 	<input type="text" name="imageLink"/>

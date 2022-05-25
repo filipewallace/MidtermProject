@@ -24,7 +24,7 @@ import com.skilldistillery.adoptapet.entities.User;
 public class UserController {
 
 	@Autowired
-	private UserDAO userDao;
+	private UserDAO userDao; 
 
 	@RequestMapping(path = { "/", "home.do" })
 	private String home(Model model) {
