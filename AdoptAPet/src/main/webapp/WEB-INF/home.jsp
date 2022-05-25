@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Adopt A Pet</title>
+<jsp:include page=".../bootstrap.jsp"></jsp:include/>
 </head>
 <body>
 <%@ include file="nav.jsp" %>
