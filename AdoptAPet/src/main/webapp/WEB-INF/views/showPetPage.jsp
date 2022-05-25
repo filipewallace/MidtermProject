@@ -7,12 +7,7 @@
 <meta charset="UTF-8">
 <title>I am Me</title>
 <jsp:include page="../bootstrapAndCSSHeader.jsp"/>
-<style>
-.resize {
-	width: 10%;
-	height: auto;
-}
-</style>
+
 </head>
 <body>
 <div class="container">

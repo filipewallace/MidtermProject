@@ -2,49 +2,76 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<%@ include file="bootstrapAndCSSHeader.jsp"%>
+
 
 <div class="buttons">
 
 	<div class="action_btn">
 
-		<nav>
-			<form action="home.do">
-				<input type="submit" value="Home">
-			</form>
-			<form action="showAllPets.do" method="GET">
-				<input type="submit" value="Pet List" />
-			</form>
 
-			<c:if test="${empty user }">
-				<form action="loginPage.do" method="GET">
-					<input type="submit" value="Login" />
-				</form>
-			</c:if>
-			<c:if test="${empty user }">
-				<form action="createAccount.do" method="GET">
-					<input type="submit" value="Create Account" />
-				</form>
-			</c:if>
+		<div class="container">
 
-			<c:if test="${not empty user }">
-				<form action="userPage.do" method="GET">
-					<input type="submit" value="My Profile" /> <input type="text"
-						name="id" value="${user.id}" hidden />
-				</form>
-			</c:if>
-			<c:if test="${not empty user }">
-				<form action="logout.do" method="GET">
-					<input type="submit" value="Log Out" />
-				</form>
-			</c:if>
-			<c:if test="${not empty user }">
-				<form action="updateUserInformation.do" method="GET">
-					<input type="submit" value="Update Information"> <input
-						name="id" value="${user.account.id }" hidden />
-				</form>
-			</c:if>
+			<nav>
+				<div class="row">
 
-		</nav>
+					<div class="col">
+						<form action="home.do">
+							<input type="submit" value="Home">
+						</form>
+					</div>
+					<div class="col">
+						<form action="showAllPets.do" method="GET">
+							<input type="submit" value="Pet List" />
+						</form>
+					</div>
+					
+						<c:if test="${empty user }">
+					<div class="col">
+							<form action="loginPage.do" method="GET">
+								<input type="submit" value="Login" />
+							</form>
+					</div>
+						</c:if>
+					
+						<c:if test="${empty user }">
+					<div class="col">
+							<form action="createAccount.do" method="GET">
+								<input type="submit" value="Create Account" />
+							</form>
+					</div>
+						</c:if>
+					
+						<c:if test="${not empty user }">
+					<div class="col">
+							<form action="userPage.do" method="GET">
+								<input type="submit" value="My Profile" /> <input type="text"
+									name="id" value="${user.id}" hidden />
+							</form>
+					</div>
+						</c:if>
+						
+						
+						<c:if test="${not empty user }">
+					<div class="col">
+							<form action="logout.do" method="GET">
+								<input type="submit" value="Log Out" />
+							</form>
+					</div>
+						</c:if>
+						
+						<c:if test="${not empty user }">
+					<div class="col">
+							<form action="updateUserInformation.do" method="GET">
+								<input type="submit" value="Update Information"> <input
+									name="id" value="${user.account.id }" hidden />
+							</form>
+					</div>
+						</c:if>
+					
+				</div>
+			</nav>
+		</div>
 	</div>
 
 </div>

@@ -1,12 +1,14 @@
 .homeBackgroundImage {
 	background-image: url(../images/adopt-pet-home-background.jpeg);
 	background-repeat: no-repeat;
-	/* height: 100%;
-	width: auto; */ 
+	position: center;
+	height: 100vh;
+	width: 100%;
   	background-size: cover ;
-  	background-color: rgba(255, 255, 255, 0.7);
- 	background-blend-mode: color;
+  	background-color: #FBDCE2;
+ /* 	background-blend-mode: color; */
  	/* overflow-x:hidden; */
+
 }
 
 header {
@@ -14,6 +16,65 @@ header {
 	padding: 55px;
 }
 
+.resize {
+	width: 10%;
+	height: auto;
+}
 body {
 	background-color: #FBDCE2 /* piggy pink */
+	
+	
 }
+
+
+ul {
+	list-style-type: none;
+}
+
+.buttons {
+	  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+
+.container-login {
+    padding: 25px;
+    position: fixed;
+}
+.form-login {
+    background-color: #EDEDED;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+h4 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.login-box {
+	text-align: center;
+	position: relative;
+}
+
