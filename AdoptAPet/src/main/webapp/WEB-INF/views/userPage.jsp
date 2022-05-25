@@ -6,6 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>User Page</title>
+<style>
+.resize{
+width: 10%;
+height: auto;
+}
+</style>
 </head>
 <body>
 	<%@ include file="../nav.jsp"%>
@@ -21,7 +27,8 @@
 		<c:otherwise>
 		
 		<c:forEach var="pet" items="${user.account.petList}">
-		 <ol>
+		 <ul>
+		 <li> <img class="resize" src= "${pet.imageLink }" > </li>
 		<li>Name : ${pet.petName }</li>
 		<li>Vaccination Status: ${pet.vaccinatedStatus }</li>
 		 <li>Pet Weight: ${pet.weight }</li>
@@ -34,7 +41,7 @@
 			Breed's Size: ${pet.breed.size.petSize }<br>
 			Type of Animal: ${pet.breed.category.typeOfPet }<br> 
 			Description of Breed: ${pet.breed.description }</li> 
-		</ol>
+		</ul>
 		 <form action="deleted.do" method="GET">
 				<input type="hidden" name="id" value=${pet.id } /> <input
 					type="submit" class="button" value="Delete Pet" />

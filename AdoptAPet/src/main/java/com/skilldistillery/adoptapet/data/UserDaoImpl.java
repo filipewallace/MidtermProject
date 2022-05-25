@@ -26,6 +26,13 @@ public class UserDaoImpl implements UserDAO {
 		return em.find(User.class, userId);
 	}
 
+//	@Override
+//	public User findByUsernameAndPassword(String username, String password) {
+//		
+//		return null;
+////		return em.find(User.class, username, password);
+//	}
+	 
 	@Override
 	public User findByUsernameAndPassword(String username, String password) {
 		User u = null;
@@ -55,6 +62,7 @@ public class UserDaoImpl implements UserDAO {
 		return em.createQuery(jpql, User.class).getResultList();
 	}
 	
+
 	@Override
 	public Account findAccountByID(int id) {
 //		String query = "SELECT a FROM Account a WHERE a.id = :id";
