@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Update Your information</title>
+<jsp:include page="../bootstrapAndCSSHeader.jsp"/>
 </head>
 <body>
+<div class="container">
 	<%@ include file="../nav.jsp"%>
 	<div>
 		<form action="updateMyInformation.do" method="POST">
@@ -59,4 +61,5 @@
 		</form>
 	</div>
 
+</div>
 </body>

@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
+<jsp:include page="../bootstrapAndCSSHeader.jsp"/>
 </head>
 <body>
+<div class="container">
 	<form action="home.do" method="GET">
 		<input type="submit" value="Home" />
 	</form>
@@ -18,5 +20,6 @@
 		<input type="text" name="password" /> <input type="submit"
 			value="Login" />
 	</form>
+</div>
 
 </body>

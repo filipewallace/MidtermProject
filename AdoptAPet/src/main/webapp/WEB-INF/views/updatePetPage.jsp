@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="../bootstrapAndCSSHeader.jsp"/>
 </head>
 <body>
+<div class="container">
 <%@ include file="../nav.jsp" %>
 	<h2>Update a Pet Listing:</h2>
 	
@@ -67,5 +69,6 @@
 	
 </form>
 
+</div>
 </body>
 </html>

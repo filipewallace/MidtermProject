@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Admin Update Page</title>
+<jsp:include page="../bootstrapAndCSSHeader.jsp"/>
 </head>
 <body>
+<div class="container">
 	<%@ include file="../nav.jsp"%>
 	<form action="updateUserInformationAsAdmin.do" method="POST">
 		<label for="username"> Username: </label><input type="text"
@@ -20,5 +22,6 @@
 		<input type="submit" name="user" value="Submit" />
 
 	</form>
+	</div>
 </body>
 </html>

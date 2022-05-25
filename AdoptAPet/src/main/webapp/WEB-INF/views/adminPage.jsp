@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Admin Page</title>
+<jsp:include page="../bootstrapAndCSSHeader.jsp"/>
 </head>
 <body>
+<div class="container">
 	<%@ include file="../nav.jsp"%>
 	<h1>This is a admin page: I AM ALL POWERFUL!!!</h1>
 	<div>
@@ -62,6 +64,6 @@
 		</ul>
 	</div>
 
-
+</div>
 </body>
 </html>

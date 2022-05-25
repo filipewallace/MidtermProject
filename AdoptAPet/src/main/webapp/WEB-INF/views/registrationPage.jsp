@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Registration Page</title>
+<jsp:include page="../bootstrapAndCSSHeader.jsp"/>
 </head>
 <body>
+<div class="container">
 	<form action="home.do" method="GET">
 		<input type="submit" value="Home" />
 	</form>
@@ -25,5 +27,6 @@
 			value="Submit" />
 
 	</form>
+</div>
 </body>
 </html>

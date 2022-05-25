@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>I am Me</title>
+<jsp:include page="../bootstrapAndCSSHeader.jsp"/>
 <style>
 .resize {
 	width: 10%;
@@ -14,6 +15,7 @@
 </style>
 </head>
 <body>
+<div class="container">
 	<%@ include file="../nav.jsp"%>
 	
 	         <c:if test="${not empty user  }">
@@ -61,6 +63,7 @@
          <c:if test="${ empty user  }">Create an account to see full pet listing </c:if>
 
 
+</div>
 </body>
 </html>
 

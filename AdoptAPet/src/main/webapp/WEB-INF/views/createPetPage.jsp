@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Create Pet Listing</title>
+<jsp:include page="../bootstrapAndCSSHeader.jsp"/>
 </head>
 <body>
+<div class="container">
 <%@ include file="../nav.jsp" %>
 	<h2>Create a Pet Listing:</h2>
 	
@@ -67,6 +69,6 @@
 	
 	<input type="submit" value="Create Pet Listing">
 	</form>
-	
+</div>
 </body>
 </html>
