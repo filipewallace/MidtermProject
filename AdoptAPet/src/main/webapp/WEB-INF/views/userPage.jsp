@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>User Page</title>
+<jsp:include page="../bootstrapAndCSSHeader.jsp"/>
 <style>
 .resize{
 width: 10%;
@@ -14,6 +15,7 @@ height: auto;
 </style>
 </head>
 <body>
+<div class="container">
 	<%@ include file="../nav.jsp"%>
 	<h1>This is a user page: BEHOLD!!!</h1>
 	 <div>
@@ -78,5 +80,6 @@ height: auto;
 
 	</div>
 
+</div>
 </body>
 </html>

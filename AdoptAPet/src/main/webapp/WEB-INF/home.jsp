@@ -5,10 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Adopt A Pet</title>
+<jsp:include page="bootstrapAndCSSHeader.jsp"/>
 </head>
-<body>
+<body class="homeBackgroundImage">
+
+<div class="container"> 
+
 <%@ include file="nav.jsp" %>
-	<h1>THIS IS WHERE I WOULD PUT A HOME PAGE..... IF I HAD ONE</h1>
+<header class="border border-2 rounded-2">
+	<h1>Adopt A Pet</h1>
+	</header>
 
 <!-- 	<form action="userPage.do" method="GET">
 		Pet Name: <input type="text" name="petName" /> <input type="submit"
@@ -16,6 +22,7 @@
 	</form> -->
 
 
+</div>
 
 </body>
 </html>

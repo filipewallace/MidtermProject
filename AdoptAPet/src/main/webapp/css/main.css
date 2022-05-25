@@ -1,0 +1,19 @@
+.homeBackgroundImage {
+	background-image: url(../images/adopt-pet-home-background.jpeg);
+	background-repeat: no-repeat;
+	/* height: 100%;
+	width: auto; */ 
+  	background-size: cover ;
+  	background-color: rgba(255, 255, 255, 0.7);
+ 	background-blend-mode: color;
+ 	/* overflow-x:hidden; */
+}
+
+header {
+	text-align: center;
+	padding: 55px;
+}
+
+body {
+	background-color: #FBDCE2 /* piggy pink */
+}
