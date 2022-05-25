@@ -12,9 +12,9 @@
 	<c:choose>
 		<c:when test="${empty pet }">Invalid Pet</c:when>
 		<c:otherwise>
-Name: ${pet.petName }
-Breed: ${pet.breed.breedName }
-</c:otherwise>
+		Name: ${pet.petName }
+		Breed: ${pet.breed.breedName }
+	</c:otherwise>
 	</c:choose>
 </body>
 </html>
