@@ -33,8 +33,14 @@ public class PetController {
 	model.addAttribute("pet", pet);
 	User user = (User) session.getAttribute("user");
 	boolean allowUpdate = false;
-	if(pet.getAccount().getId() == user.getId()) {
-		allowUpdate = true;
+	
+	try {
+		if(pet.getAccount().getId() == user.getId()) {
+			allowUpdate = true;
+			
+		}
+	} catch (NullPointerException e) {
+		allowUpdate = false;
 		
 	}
 	model.addAttribute("allowUpdate", allowUpdate);

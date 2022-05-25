@@ -62,7 +62,6 @@ public class UserDaoImpl implements UserDAO {
 		return em.createQuery(jpql, User.class).getResultList();
 	}
 	
-
 	@Override
 	public Account findAccountByID(int id) {
 //		String query = "SELECT a FROM Account a WHERE a.id = :id";
