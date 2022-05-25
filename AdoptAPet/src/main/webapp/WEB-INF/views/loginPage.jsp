@@ -15,8 +15,8 @@
 		<h1>Please enter username:</h1>
 		<input type="text" name="username" />
 		<h1>Please enter password:</h1>
-		<input type="text" name="password" /> <input type="submit"
-			value="Login" />
+		<input type="text" name="password" /> 
+		<input type="submit" value="Login" />
 	</form>
 
 </body>
