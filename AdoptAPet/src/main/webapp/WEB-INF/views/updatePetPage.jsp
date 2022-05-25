@@ -17,9 +17,10 @@
 	 <input type="text" name="petName" value= "${pet.petName }" /><br><br>
 	 
 	 Please enter your pet's vaccination status:
-	 <select name="vaccinatedStatus" id="vaccinatedStatus">
+	 <select name="vaccinatedStatus" id="vaccinatedStatus" > 
 	<option value="true">Yes</option>
 	<option value="false">No</option>	
+	
 	 </select><br><br>
 	 
 	 <label for="imageLink">Please include a image url of your pet</label>
