@@ -15,12 +15,10 @@ height: auto;
 </head>
 <body>
 	<%@ include file="../nav.jsp"%>
-	<c:choose>
 		
-		 <c:when test="${not empty user  }">
-		 <c:choose> 
-		 <c:when test="${empty pet }">Invalid Pet</c:when>
-		 <c:otherwise> 
+		 <c:if test="${not empty user  }">
+		<%--  <c:when test="${empty pet }">Invalid Pet</c:when> --%>
+	
 		 <ul>
 		<li> <img class="resize" src= "${pet.imageLink }" > <br>
 		<li>Name : ${pet.petName }</li>
@@ -36,13 +34,15 @@ height: auto;
 			Type of Animal: ${pet.breed.category.typeOfPet }<br> 
 			Description of Breed: ${pet.breed.description }</li> 
 		</ul>
-		  </c:otherwise>
-		 </c:choose>
-		
+		<c:if test="${allowUpdate }">
+			<form action="updated.do" method="GET">
+				<input type="hidden" name="id" value=${pet.id } /> <input
+					type="submit" class="button" value="Update Pet" />
+			</form> 
+		</c:if>
  
-		</c:when>
-		<c:otherwise>Create an account to see full pet listing </c:otherwise>
+		</c:if>
+		 <c:if test="${ empty user  }">Create an account to see full pet listing </c:if>
 
-	</c:choose>
 </body>
 </html>
