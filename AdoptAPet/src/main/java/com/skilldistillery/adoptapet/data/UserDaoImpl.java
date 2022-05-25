@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.adoptapet.entities.Account;
 import com.skilldistillery.adoptapet.entities.Address;
+import com.skilldistillery.adoptapet.entities.Pet;
 import com.skilldistillery.adoptapet.entities.User;
 
 @Service
@@ -48,6 +49,20 @@ public class UserDaoImpl implements UserDAO {
 	
 
 	@Override
+	public List<Pet> showAllPets() {
+		String jpql = "SELECT pet FROM Pet pet";
+
+		return em.createQuery(jpql, Pet.class).getResultList();
+	}
+	
+	@Override
+	public List<User> showAllUsers() {
+		String jpql = "SELECT u FROM User u";
+		
+		return em.createQuery(jpql, User.class).getResultList();
+	}
+	
+	@Override
 	public Account findAccountByID(int id) {
 //		String query = "SELECT a FROM Account a WHERE a.id = :id";
 		Account account = em.find(Account.class, id);
@@ -60,15 +75,32 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public User updateUser(User user) {
-		// TODO Auto-generated method stub
+	public User updateUser(int id) {
+		User user = em.find(User.class, id);
 		return user;
+	}
+	
+	@Override
+	public User adminUpdateUser(User user) {
+		User updatedUser = em.find(User.class, user.getId());
+		
+		updatedUser.setUsername(user.getUsername());
+		updatedUser.setPassword(user.getPassword());
+		return updatedUser;
 	}
 
 	@Override
 	public boolean deleteUser(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		User userToDelete = em.find(User.class, id);
+		if(userToDelete.isActive()) {
+			userToDelete.setActive(false);
+		}
+		else {
+			userToDelete.setActive(true); 
+		}
+		userToDelete.isActive();
+		 
+		return false; 
 	}
 
 	@Override
@@ -105,6 +137,8 @@ public class UserDaoImpl implements UserDAO {
 		
 		return address;
 	}
+
+
 
 
 }
