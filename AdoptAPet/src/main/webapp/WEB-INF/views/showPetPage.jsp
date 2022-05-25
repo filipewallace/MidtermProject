@@ -28,12 +28,17 @@
         <li>Neutered? ${pet.neutered }</li>
         <li>About me: ${pet.aboutMe }</li>
         <li>Sex: ${pet.sexOfPet }</li>
+        
          <li>Pet's Breed: ${pet.breed }<br> 
             Is Hypoallergenic: ${pet.breed.isAllergic }<br> 
             Breed's Size: ${pet.breed.size.petSize }<br>
             Type of Animal: ${pet.breed.category.typeOfPet }<br> 
             Description of Breed: ${pet.breed.description }</li> 
+            
         </ul>
+        
+        <p>Please contact my owner at: ${pet.account.phoneNumber } if you want to adopt me!</p>
+        
         <c:if test="${allowUpdate }">
             <form action="updated.do" method="GET">
                 <input type="hidden" name="id" value=${pet.id } /> <input
