@@ -5,11 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Adopt A Pet</title>
-<<<<<<< HEAD
-<jsp:include page=".../bootstrap.jsp"></jsp:include/>
-=======
 <jsp:include page="bootstrapAndCSSHeader.jsp"/>
->>>>>>> a0724d12b1179f7536d53c183215e1f3aca8f4fd
 </head>
 <body class="homeBackgroundImage">
 
