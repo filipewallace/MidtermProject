@@ -17,7 +17,7 @@
         <%--  <c:when test="${empty pet }">Invalid Pet</c:when> --%>
     
          <ul>
-        <li> <img class="resize" src= "${pet.imageLink }" > <br>
+        <li> <img class="img-fluid" src= "${pet.imageLink }" > <br>
         <li>Name : ${pet.petName }</li>
         <li>Vaccination Status: ${pet.vaccinatedStatus }</li>
          <li>Pet Weight: ${pet.weight }</li>

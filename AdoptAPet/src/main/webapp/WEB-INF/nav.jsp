@@ -4,79 +4,89 @@
 
 <%@ include file="bootstrapAndCSSHeader.jsp"%>
 
+<nav class="navbar navbar-light" style="background-color: #6dfc87;"> 
 
-<div class="buttons">
+<!-- <nav class="navbar navbar-dark bg-primary"> -->
+	<!-- Navbar content -->
 
-	<div class="action_btn">
+	<!-- <div class="buttons"> -->
+
+		<div class="action_btn">
 
 
-		<div class="container">
-
-			<nav>
-				<div class="row">
-
-					<div class="col">
-						<form action="home.do">
-							<input type="submit" value="Home">
-						</form>
-					</div>
-					<div class="col">
-						<form action="showAllPets.do" method="GET">
-							<input type="submit" value="Pet List" />
-						</form>
-					</div>
+			<div class="container">
+			<div class="userpagebutton">
+				<nav>
+					<div class="row">
 					
+						<div class="col">
+							<form action="home.do">
+								<input type="submit" class="button" value="Home">
+							</form>
+						</div>
+						<div class="col">
+							<form action="showAllPets.do" method="GET">
+								<input type="submit" class="button"value="Pet List" />
+							</form>
+						</div>
+
 						<c:if test="${empty user }">
-					<div class="col">
-							<form action="loginPage.do" method="GET">
-								<input type="submit" value="Login" />
-							</form>
-					</div>
+							<div class="col">
+								<form action="loginPage.do" method="GET">
+									<input type="submit" class="button"value="Login" />
+								</form>
+							</div>
 						</c:if>
-					
+
 						<c:if test="${empty user }">
-					<div class="col">
-							<form action="createAccount.do" method="GET">
-								<input type="submit" value="Create Account" />
-							</form>
-					</div>
+							<div class="col">
+								<form action="createAccount.do" method="GET">
+									<input type="submit"class="button" value="Create Account" />
+								</form>
+							</div>
 						</c:if>
-					
+
 						<c:if test="${not empty user }">
-					<div class="col">
-							<form action="userPage.do" method="GET">
-								<input type="submit" value="My Profile" /> <input type="text"
-									name="id" value="${user.id}" hidden />
-							</form>
-					</div>
+							<div class="col">
+								<form action="userPage.do" method="GET">
+									<input type="submit"class="button" value="My Profile" /> <input type="text"
+										name="id" value="${user.id}" hidden />
+								</form>
+							</div>
 						</c:if>
-						
-						
+
+
 						<c:if test="${not empty user }">
-					<div class="col">
-							<form action="logout.do" method="GET">
-								<input type="submit" value="Log Out" />
-							</form>
-					</div>
+							<div class="col">
+								<form action="logout.do" method="GET">
+									<input type="submit"class="button" value="Log Out" />
+								</form>
+							</div>
 						</c:if>
-						
+
 						<c:if test="${not empty user }">
-					<div class="col">
-							<form action="updateUserInformation.do" method="GET">
-								<input type="submit" value="Update Information"> <input
-									name="id" value="${user.account.id }" hidden />
-							</form>
-					</div>
+							<div class="col">
+								<form action="updateUserInformation.do" method="GET">
+									<input type="submit" class="button" value="Update Information"> <input
+										name="id" value="${user.account.id }" hidden />
+								</form>
+							</div>
 						</c:if>
-					
-				</div>
-			</nav>
+						<c:if test="${not empty user.account.phoneNumber }">
+							<div class="col">
+								<form action="createPet.do" method="GET">
+									<input type="submit"class="button" value="Create Pet Listing"><input
+										name="id" value="${user.account.id }" hidden />
+								</form>
+							</div>
+						</c:if>
+
+					</div>
+				</nav>
+			</div>
 		</div>
-	</div>
-
 </div>
-
-
+</nav>
 <%-- <nav>
 	<a href="index.do">Home</a>
 	<c:choose>
