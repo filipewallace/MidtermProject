@@ -16,25 +16,38 @@
 	         <c:if test="${not empty user  }">
         <%--  <c:when test="${empty pet }">Invalid Pet</c:when> --%>
     
-         <ul>
         <li> <img class="img-fluid" src= "${pet.imageLink }" > <br>
-        <li>Name : ${pet.petName }</li>
-        <li>Vaccination Status: ${pet.vaccinatedStatus }</li>
-         <li>Pet Weight: ${pet.weight }</li>
-        <li>Pet's Personality: ${pet.personality }</li>
-        <li>Neutered? ${pet.neutered }</li>
-        <li>About me: ${pet.aboutMe }</li>
-        <li>Sex: ${pet.sexOfPet }</li>
-        
-         <li>Pet's Breed: ${pet.breed }<br> 
-            Is Hypoallergenic: ${pet.breed.isAllergic }<br> 
-            Breed's Size: ${pet.breed.size.petSize }<br>
-            Type of Animal: ${pet.breed.category.typeOfPet }<br> 
-            Description of Breed: ${pet.breed.description }</li> 
-            
+        <div class="col bg-light">
+         
+        <div class="row border border-warning">
+         <ul>
+        <li><h3>Name : ${pet.petName }</h3></li>
         </ul>
+        </div>
         
-        <p>Please contact my owner at: ${pet.account.phoneNumber } if you want to adopt me!</p>
+        <div class="row border border-warning">
+						<ul>
+							<li>Vaccination Status: ${pet.vaccinatedStatus }</li>
+							<li>Pet Weight: ${pet.weight }</li>
+							<li>Pet's Personality: ${pet.personality }</li>
+							<li>Neutered? ${pet.neutered }</li>
+							<li>About me: ${pet.aboutMe }</li>
+							<li>Sex: ${pet.sexOfPet }</li>
+
+							<li>Pet's Breed: ${pet.breed }<br> Is Hypoallergenic:
+								${pet.breed.isAllergic }<br> Breed's Size:
+								${pet.breed.size.petSize }<br> Type of Animal:
+								${pet.breed.category.typeOfPet }<br> Description of Breed:
+								${pet.breed.description }
+							</li>
+						</ul>
+					</div>
+					<div class="row border border-warning text-center">
+						<h2>Please contact my owner at: ${pet.account.phoneNumber }
+							if you want to adopt me!</h2>
+					</div>
+				</div>
+        
         
         <c:if test="${allowUpdate }">
             <form action="updated.do" method="GET">
