@@ -218,6 +218,11 @@ START TRANSACTION;
 USE `petadoptdb`;
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_abbr`, `zipcode`) VALUES (1, '1276 Sylveon Dr', 'Unit 17', 'San Jose', 'CA', '94088');
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_abbr`, `zipcode`) VALUES (2, '908 Weaville Way', NULL, 'San Francisco', 'CA', '90416');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_abbr`, `zipcode`) VALUES (3, '123 Mercury Cir', NULL, 'Centennial', 'CO', '80112');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_abbr`, `zipcode`) VALUES (4, '35 American Way', NULL, 'Smallville', 'CO', '80123');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_abbr`, `zipcode`) VALUES (5, '4 Privet Drive', NULL, 'Berkshire', 'CO', '80144');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_abbr`, `zipcode`) VALUES (6, '720 Charizard Way', 'Apt 24', 'San Jose', 'CO', '80223');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_abbr`, `zipcode`) VALUES (7, '3 Themiscyra Cir', NULL, 'Pontus', 'CO', '80321');
 
 COMMIT;
 
@@ -228,7 +233,12 @@ COMMIT;
 START TRANSACTION;
 USE `petadoptdb`;
 INSERT INTO `account` (`id`, `first_name`, `last_name`, `email`, `phone`, `date_of_birth`, `address_id`, `about_me`, `active`) VALUES (1, 'Ron', 'Weasley', 'ron@hogwarts.com', '7205550202', '1984-10-31', 1, 'Hi, I have a cat called Fluffy that I can no longer take care of due to a loved one\'s allergies. While it\'s sad, I really want a wonderful new home for Fluffy.', 1);
-INSERT INTO `account` (`id`, `first_name`, `last_name`, `email`, `phone`, `date_of_birth`, `address_id`, `about_me`, `active`) VALUES (2, 'Sarah', 'Nelson', 'sarah551@adoptapet.com', '5518965478', '1990-07-20', 2, NULL, 1);
+INSERT INTO `account` (`id`, `first_name`, `last_name`, `email`, `phone`, `date_of_birth`, `address_id`, `about_me`, `active`) VALUES (2, 'Sarah', 'Nelson', 'sarah551@adoptapet.com', '5518965478', '1990-07-20', 2, 'Hi, my name\'s Sarah. I love animals. ', 1);
+INSERT INTO `account` (`id`, `first_name`, `last_name`, `email`, `phone`, `date_of_birth`, `address_id`, `about_me`, `active`) VALUES (3, 'Admin', 'User', 'admin@adoptapet.com', '7205550910', '1983-10-27', 3, 'I\'m the Admin of the site!', 1);
+INSERT INTO `account` (`id`, `first_name`, `last_name`, `email`, `phone`, `date_of_birth`, `address_id`, `about_me`, `active`) VALUES (4, 'Clark', 'Kent', 'clark@smallville.com', '9745552231', '1984-10-10', 4, 'Hi, I\'m Clark. I love animals, especially dogs. I am looking to adopt a dog. ', 1);
+INSERT INTO `account` (`id`, `first_name`, `last_name`, `email`, `phone`, `date_of_birth`, `address_id`, `about_me`, `active`) VALUES (5, 'Harry', 'Potter', 'hpotter@hogwarts.com', '7205550123', '1990-10-31', 5, 'Hi, I\'m Harry! I love dogs, cats and owls. I also love animals of a more magical variety. ', 1);
+INSERT INTO `account` (`id`, `first_name`, `last_name`, `email`, `phone`, `date_of_birth`, `address_id`, `about_me`, `active`) VALUES (6, 'Charlie', 'Spring', 'charlie-spring@adoptapet.com', '2015955694', '2000-04-25', 6, 'Hi, I\'m Charlie. Every pet deserves a good home. I\'m looking for a pet to adopt.', 1);
+INSERT INTO `account` (`id`, `first_name`, `last_name`, `email`, `phone`, `date_of_birth`, `address_id`, `about_me`, `active`) VALUES (7, 'Diana', 'Prince', 'diana-wonder@adoptapet.com', '7208956214', '1931-07-04', 7, 'Hello, my name is Diana. I love all animals. I have fostered many needy ones over the years. While I love fostering, I have a passion for finding a caring, forever home for the animals in my care. I will be creating listings for sweet animals who deserve a wonderful home. My contact information is available for registered users. ', 1);
 
 COMMIT;
 
@@ -251,6 +261,11 @@ START TRANSACTION;
 USE `petadoptdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `active`, `account_id`, `role_id`) VALUES (1, 'ron', 'password', 1, 1, 2);
 INSERT INTO `user` (`id`, `username`, `password`, `active`, `account_id`, `role_id`) VALUES (2, 'sarah', 'sarahnelson', 1, 2, 2);
+INSERT INTO `user` (`id`, `username`, `password`, `active`, `account_id`, `role_id`) VALUES (3, 'admin', 'admin', 1, 3, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `active`, `account_id`, `role_id`) VALUES (4, 'clark', 'clark-kent', 1, 4, 2);
+INSERT INTO `user` (`id`, `username`, `password`, `active`, `account_id`, `role_id`) VALUES (5, 'harry', 'hogwarts', 1, 5, 2);
+INSERT INTO `user` (`id`, `username`, `password`, `active`, `account_id`, `role_id`) VALUES (6, 'charlie-spring', 'charlie-spring', 1, 6, 2);
+INSERT INTO `user` (`id`, `username`, `password`, `active`, `account_id`, `role_id`) VALUES (7, 'diana-prince', 'diana-prince', 1, 7, 2);
 
 COMMIT;
 
@@ -266,6 +281,7 @@ INSERT INTO `size` (`id`, `name`) VALUES (3, 'medium');
 INSERT INTO `size` (`id`, `name`) VALUES (4, 'large');
 INSERT INTO `size` (`id`, `name`) VALUES (5, 'xlarge');
 INSERT INTO `size` (`id`, `name`) VALUES (6, 'giant');
+INSERT INTO `size` (`id`, `name`) VALUES (7, 'unspecified');
 
 COMMIT;
 
@@ -279,6 +295,7 @@ INSERT INTO `category` (`id`, `name`) VALUES (1, 'dog');
 INSERT INTO `category` (`id`, `name`) VALUES (2, 'cat');
 INSERT INTO `category` (`id`, `name`) VALUES (3, 'bird');
 INSERT INTO `category` (`id`, `name`) VALUES (4, 'hamster');
+INSERT INTO `category` (`id`, `name`) VALUES (5, 'other');
 
 COMMIT;
 
@@ -288,10 +305,15 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `petadoptdb`;
-INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (1, 'Golden Retriever', 1, NULL, 4, 1);
-INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (2, 'Persian', 1, NULL, 2, 2);
-INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (3, 'Mutt medium dog', 0, NULL, 3, 1);
-INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (4, 'Mutt small dog', 0, NULL, 2, 1);
+INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (1, 'Golden Retriever', 1, 'The Golden Retriever, an exuberant Scottish gundog of great beauty, stands among America\'s most popular dog breeds.', 4, 1);
+INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (2, 'Persian', 1, 'The Persian cat (Persian is a long-haired breed of cat characterized by its round face and short muzzle. It is also known as the \"Persian Longhair\" in English-speaking countries. ', 2, 2);
+INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (3, 'Mixed breed medium dog', 0, 'Mixed breed medium sized dog.', 3, 1);
+INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (4, 'Mixed breed small dog', 0, 'Mixed breed small dog.', 2, 1);
+INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (5, 'Mixed breed large dog', 0, 'Mixed breed large dog.', 4, 1);
+INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (6, 'Great Dane', 1, 'Patient with kids, Danes are people pleasers who make friends easily.', 6, 1);
+INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (7, 'Other', 0, 'Breed is unknown or unspecified', 7, 5);
+INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (8, 'French Bulldog', 0, 'Small dog breed. Energetic. Friendly.', 2, 1);
+INSERT INTO `breed` (`id`, `breed_name`, `hypoallergenic`, `description`, `size_id`, `category_id`) VALUES (9, 'Ragdoll Cat', 0, 'Ragdoll breed of cat. ', 2, 2);
 
 COMMIT;
 
@@ -314,8 +336,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `petadoptdb`;
-INSERT INTO `pet` (`id`, `name`, `vaccinated`, `image_url`, `date_of_birth`, `weight`, `temperament`, `account_id`, `neutered`, `breed_id`, `about_me`, `active`, `pet_sex_id`) VALUES (1, 'Fluffy', 1, NULL, '2020-10-31', 12.50, 'Friendly', 1, 1, 2, 'I love taking naps, drinking milk, and playing with yarn!', 1, 1);
-INSERT INTO `pet` (`id`, `name`, `vaccinated`, `image_url`, `date_of_birth`, `weight`, `temperament`, `account_id`, `neutered`, `breed_id`, `about_me`, `active`, `pet_sex_id`) VALUES (2, 'Kam', 1, NULL, '2019-05-11', 20.24, 'Aloof', 2, 1, 4, 'I like taking naps, resting in the sunshine, and getting treats!', 1, 2);
+INSERT INTO `pet` (`id`, `name`, `vaccinated`, `image_url`, `date_of_birth`, `weight`, `temperament`, `account_id`, `neutered`, `breed_id`, `about_me`, `active`, `pet_sex_id`) VALUES (1, 'Fluffy', 1, 'https://en.wikipedia.org/wiki/Persian_cat#/media/File:Doll_face_silver_Persian.jpg', '2020-10-31', 12.50, 'Friendly', 1, 1, 2, 'I love taking naps, drinking milk, and playing with yarn!', 1, 1);
+INSERT INTO `pet` (`id`, `name`, `vaccinated`, `image_url`, `date_of_birth`, `weight`, `temperament`, `account_id`, `neutered`, `breed_id`, `about_me`, `active`, `pet_sex_id`) VALUES (2, 'Kam', 1, 'https://www.akc.org/wp-content/uploads/2017/11/French-Bulldog-puppy-standing-in-the-grass-holding-a-ball-in-its-mouth.jpg', '2019-05-11', 20.24, 'Aloof', 2, 1, 4, 'I like taking naps, resting in the sunshine, and getting treats!', 1, 2);
+INSERT INTO `pet` (`id`, `name`, `vaccinated`, `image_url`, `date_of_birth`, `weight`, `temperament`, `account_id`, `neutered`, `breed_id`, `about_me`, `active`, `pet_sex_id`) VALUES (3, 'Luna', 1, 'https://images.app.goo.gl/94F3v8cVQW3y3oaz5', '2021-06-15', 27.90, 'Friendly, curious, loving', 7, 0, 3, 'I love to be around people and see what they\'re up to! I like playing fetch. Ear scratches are great!', 1, 2);
+INSERT INTO `pet` (`id`, `name`, `vaccinated`, `image_url`, `date_of_birth`, `weight`, `temperament`, `account_id`, `neutered`, `breed_id`, `about_me`, `active`, `pet_sex_id`) VALUES (4, 'Pearl', 1, 'https://images.app.goo.gl/qae5Ap4poygUJEBb7', '2020-07-30', 10.20, 'Curious, lovable', 7, 0, 9, 'I love people-watching, but I don\'t love to participate in activities. ', 1, 2);
+INSERT INTO `pet` (`id`, `name`, `vaccinated`, `image_url`, `date_of_birth`, `weight`, `temperament`, `account_id`, `neutered`, `breed_id`, `about_me`, `active`, `pet_sex_id`) VALUES (5, 'Rue', 1, 'https://images.app.goo.gl/WTXr5ZSJYxAuV6Gg6', '2021-05-19', 100.22, 'Friendly, sweet, does not know his own size', 7, 1, 6, 'I love to play with other dogs. I love people. I like to see what\'s on countertops. I love taking naps on my favorite couch.', 1, 1);
 
 COMMIT;
 
