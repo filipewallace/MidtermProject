@@ -48,6 +48,8 @@
 							<li data-target="#demo" data-slide-to="0" class="active"></li>
 							<li data-target="#demo" data-slide-to="1"></li>
 							<li data-target="#demo" data-slide-to="2"></li>
+							<li data-target="#demo" data-slide-to="3"></li>
+							<li data-target="#demo" data-slide-to="4"></li>
 						</ul>
 
 						<!-- The slideshow -->
@@ -55,17 +57,27 @@
 							<div class="carousel-item active">
 								<img
 									src="https://nationaltoday.com/wp-content/uploads/2020/02/national-golden-retriever-day.jpg"
-									alt="Los Angeles" width="500" height="500">
+									alt="golden retriever" width="500" height="500">
 							</div>
 							<div class="carousel-item">
 								<img
 									src="https://townsquare.media/site/696/files/2021/10/attachment-Maine-Coon-Cat-Twix-and-Twizzle-bros-rescued-from-Brooklyn-in-Biddeford.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89"
-									alt="Chicago"width="500" height="500">
+									alt="Maine Coone Cat"width="500" height="500">
 							</div>
 							<div class="carousel-item">
 								<img
 									src="https://exoticbirdscorners.com/wp-content/uploads/2020/03/WhatsApp-Image-2019-11-11-at-12.03.09-PM1.jpeg"
-									alt="New York" width="500" height="500">
+									alt="Birb" width="500" height="500">
+							</div>
+							<div class="carousel-item">
+								<img
+									src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/cute-hamster-photo-nicole-ellissa.jpg"
+									alt="small hamster" width="500" height="500">
+							</div>
+							<div class="carousel-item">
+								<img
+									src="../images/KamAndKeefer.png"
+									alt="" width="500" height="500">
 							</div>
 						</div>
 

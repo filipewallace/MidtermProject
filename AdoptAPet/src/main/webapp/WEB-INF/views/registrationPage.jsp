@@ -36,8 +36,8 @@
 							class="form-control input-sm chat-input" placeholder="Username"
 							required /><br>
 						<h4>Password</h4>
-						<input type="text" name="password"
-							class="form-control input-sm chat-input" placeholder="password"
+						<input type="password" name="password"
+							class="form-control input-sm chat-input" placeholder="Password"
 							required /> <br>
 						<h4>First Name</h4>
 						<input type="text" name="firstName"
@@ -49,7 +49,7 @@
 							required /> <br>
 						<h4>Email</h4>
 						<input type="text" name="email"
-							class="form-control input-sm chat-input" placeholder="email"
+							class="form-control input-sm chat-input" placeholder="Email"
 							required /> <br>
 						<div class="wrapper">
 							<span class="group-btn"> <a> <input type="submit"

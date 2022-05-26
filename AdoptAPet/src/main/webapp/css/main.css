@@ -24,27 +24,16 @@ header {
 body {
 	/* background-color: #FBDCE2; */
 	background-image: url("https://wallpaperaccess.com/full/3057704.jpg");
-	background-repeat: repeat-y;
+	background-repeat: no-repeat;
 	background-size: 100%;
 	background-position: center;
 	background-color: gray;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 ul {
 	list-style-type: none;
-}
-
-.buttons {
-	border: none;
-	color: white;
-	padding: 16px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	transition-duration: 0.4s;
-	cursor: pointer;
 }
 
 .container-login {

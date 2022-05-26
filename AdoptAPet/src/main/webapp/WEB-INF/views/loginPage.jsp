@@ -39,7 +39,7 @@
 				<form action="loginAttempt.do" method="POST">
 					<input type="text" name="username"
 						class="form-control input-sm chat-input" placeholder="username" />
-					<br> <input type="text" name="password"
+					<br> <input type="password" name="password"
 						class="form-control input-sm chat-input" placeholder="password" />
 					<br>
 					<div class="wrapper">

@@ -64,12 +64,8 @@
 		<div>
 
 			<c:choose>
-				<c:when test="${empty sessionScope.user.account.phoneNumber }"> Please Update your information before adding pets!
-							<form action="updateUserInformation.do" method="GET">
-						<input type="submit" value="Update Information"> <input
-							name="id" value="${user.account.id }" hidden="true" />
-					</form>
-
+				<c:when test="${empty sessionScope.user.account.phoneNumber }">
+				<h3>Please Update your information before adding pets!</h3> 
 				</c:when>
 				<c:otherwise>
 

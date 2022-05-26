@@ -9,31 +9,31 @@
 <!-- <nav class="navbar navbar-dark bg-primary"> -->
 	<!-- Navbar content -->
 
-	<div class="buttons">
+	<!-- <div class="buttons"> -->
 
 		<div class="action_btn">
 
 
 			<div class="container">
-
+			<div class="userpagebutton">
 				<nav>
 					<div class="row">
-
+					
 						<div class="col">
 							<form action="home.do">
-								<input type="submit" value="Home">
+								<input type="submit" class="button" value="Home">
 							</form>
 						</div>
 						<div class="col">
 							<form action="showAllPets.do" method="GET">
-								<input type="submit" value="Pet List" />
+								<input type="submit" class="button"value="Pet List" />
 							</form>
 						</div>
 
 						<c:if test="${empty user }">
 							<div class="col">
 								<form action="loginPage.do" method="GET">
-									<input type="submit" value="Login" />
+									<input type="submit" class="button"value="Login" />
 								</form>
 							</div>
 						</c:if>
@@ -41,7 +41,7 @@
 						<c:if test="${empty user }">
 							<div class="col">
 								<form action="createAccount.do" method="GET">
-									<input type="submit" value="Create Account" />
+									<input type="submit"class="button" value="Create Account" />
 								</form>
 							</div>
 						</c:if>
@@ -49,7 +49,7 @@
 						<c:if test="${not empty user }">
 							<div class="col">
 								<form action="userPage.do" method="GET">
-									<input type="submit" value="My Profile" /> <input type="text"
+									<input type="submit"class="button" value="My Profile" /> <input type="text"
 										name="id" value="${user.id}" hidden />
 								</form>
 							</div>
@@ -59,7 +59,7 @@
 						<c:if test="${not empty user }">
 							<div class="col">
 								<form action="logout.do" method="GET">
-									<input type="submit" value="Log Out" />
+									<input type="submit"class="button" value="Log Out" />
 								</form>
 							</div>
 						</c:if>
@@ -67,15 +67,15 @@
 						<c:if test="${not empty user }">
 							<div class="col">
 								<form action="updateUserInformation.do" method="GET">
-									<input type="submit" value="Update Information"> <input
+									<input type="submit" class="button" value="Update Information"> <input
 										name="id" value="${user.account.id }" hidden />
 								</form>
 							</div>
 						</c:if>
-						<c:if test="${not empty user }">
+						<c:if test="${not empty user.account.phoneNumber }">
 							<div class="col">
 								<form action="createPet.do" method="GET">
-									<input type="submit" value="Create Pet Listing"><input
+									<input type="submit"class="button" value="Create Pet Listing"><input
 										name="id" value="${user.account.id }" hidden />
 								</form>
 							</div>
@@ -85,8 +85,7 @@
 				</nav>
 			</div>
 		</div>
-
-	</div>
+</div>
 </nav>
 <%-- <nav>
 	<a href="index.do">Home</a>
