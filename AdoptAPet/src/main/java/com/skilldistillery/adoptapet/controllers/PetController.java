@@ -28,9 +28,22 @@ public class PetController {
 	private UserDAO userDao;
 	
 	@RequestMapping(path = "showPetPage.do")
-	public String showPet(Model model, Integer id) {
+	public String showPet(Model model, Integer id, HttpSession session) {
 	Pet pet = petDao.showPet(id);
 	model.addAttribute("pet", pet);
+	User user = (User) session.getAttribute("user");
+	boolean allowUpdate = false;
+	
+	try {
+		if(pet.getAccount().getId() == user.getId()) {
+			allowUpdate = true;
+			
+		}
+	} catch (NullPointerException e) {
+		allowUpdate = false;
+		
+	}
+	model.addAttribute("allowUpdate", allowUpdate);
 	return "views/showPetPage";
 	
 	

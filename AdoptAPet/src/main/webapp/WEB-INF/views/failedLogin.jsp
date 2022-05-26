@@ -4,14 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Deleted Pet</title>
+<title>Adopt A Pet</title>
 <jsp:include page="../bootstrapAndCSSHeader.jsp"/>
 </head>
 <body>
 <div class="container">
-	<%@ include file="../nav.jsp"%>
-	<p>
-	Pet has successfully been deleted!</p>
-</div>	
+<%@ include file="../nav.jsp" %>
+
+	<h1>There are no users with these Credentials active, please contact an admin if you believe this to be an error.</h1>
+
+</div>
 </body>
 </html>
