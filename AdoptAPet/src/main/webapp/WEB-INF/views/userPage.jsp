@@ -14,11 +14,11 @@
 		<%@ include file="../nav.jsp"%>
 		<div class="body">
 			<h1>${user.account.firstName }'s Profile Page</h1>
-			<header class="footer">
+			<footer class="footer">
 				<div class="container">
 					<span class="text-muted"></span>
 				</div>
-			</header>
+			</footer>
 			</div>
 		<div>
 			<div class="userpagetext">
