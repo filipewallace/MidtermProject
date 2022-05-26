@@ -142,10 +142,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "adminUpdateInformation.do")
-	private String adminUpdateUserInfo(int id, RedirectAttributes redir, HttpSession session) {
+	private String adminUpdateUserInfo(int id, RedirectAttributes redir, HttpSession session, Model model) {
 		User adminToUpdate = userDao.updateUser(id); 
 		
 		session.setAttribute("adminToUpdate", adminToUpdate); 
+		
+		adminAttributes(model);
 		
 		return "views/adminUpdateInformation"; 
 	}

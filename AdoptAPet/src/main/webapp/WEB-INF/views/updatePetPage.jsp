@@ -49,6 +49,7 @@
 	<option value="2">Persian</option>
 	<option value="3">Mutt Medium Dog</option>
 	<option value="4">Mutt Small Dog</option>
+	<option value="7">Other</option>
 	</select><br><br>
 	
 	What type of animal is your pet?
@@ -57,6 +58,8 @@
 	<option value="2">Cat</option>
 	<option value="3">Bird</option>
 	<option value="4">Hamster</option>
+	
+	
 	</select><br><br>
 	
 	Is your animal male or female?
