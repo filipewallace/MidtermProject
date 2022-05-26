@@ -12,12 +12,15 @@
 <body>
 	<div class="container">
 		<%@ include file="../nav.jsp"%>
-		<h1>This is a user page: BEHOLD!!!</h1>
+		<div class="body">
+			<h1>${user.account.firstName }'s Profile Page</h1>
+			<header class="footer">
+				<div class="container">
+					<span class="text-muted"></span>
+				</div>
+			</header>
+			</div>
 		<div>
-
-
-
-			<h1>Users username: ${user.username }</h1>
 			<div class="userpagetext">
 				<c:choose>
 
@@ -30,7 +33,7 @@
 								<div class="row">
 									<div class="col-sm">
 
-										<img class="resize" src="${pet.imageLink }">
+										<img class="img-fluid" src="${pet.imageLink }">
 									</div>
 									<div class="col-sm">
 										<ul>
@@ -51,6 +54,7 @@
 									</div>
 									<div class="col-sm">
 										<div class="userpagebuttons">
+										<br><br><br><br><br>
 											<form action="deleted.do" method="GET">
 												<input type="hidden" name="id" value=${pet.id } /> <input
 													type="submit" class="button" value="Delete Pet" />
@@ -59,6 +63,7 @@
 												<input type="hidden" name="id" value=${pet.id } /> <input
 													type="submit" class="button" value="Update Pet" />
 											</form>
+											<br><br><br>
 										</div>
 									</div>
 								</div>

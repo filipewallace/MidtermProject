@@ -17,19 +17,18 @@ header {
 }
 
 .resize {
-	width: 10%;
+	width: 110%;
 	height: auto;
 }
 
 body {
-	/* background-color: #FBDCE2; */
-	background-image: url("https://wallpaperaccess.com/full/3057704.jpg");
-	background-repeat: no-repeat;
-	background-size: 100%;
-	background-position: center;
-	background-color: gray;
-	overflow-x: hidden;
-	overflow-y: hidden;
+    background-image: url(../images/backgroundpaw.png);
+    background-repeat: repeat-y;
+    background-size: 100%;
+    background-position: center;
+    background-color: gray;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 ul {
