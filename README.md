@@ -38,5 +38,8 @@ You're even able to create your own pet listing for an animal that you know is i
 * Tomcat (server)
 * MySQL Workbench
 
+## EER Diagram
+![](https://github.com/filipewallace/MidtermProject/blob/main/AdoptAPet/src/main/webapp/images/EERDiagram.png)
+
 ## Lessons Learned
 Working on a large project with others can be challenging. We all have different opinions, personalities and ways of working so it's easy for ideas to start clashing. Luckily our team was able to properly communicate in the end and steer our passion into making a beautiful project together.
