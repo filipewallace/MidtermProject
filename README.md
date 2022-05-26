@@ -38,7 +38,7 @@ You're even able to create your own pet listing for an animal that you know is i
 * Tomcat (server)
 * MySQL Workbench
 
-## EER Diagram
+## ER Diagram
 ![](https://github.com/filipewallace/MidtermProject/blob/main/AdoptAPet/src/main/webapp/images/EERDiagram.png)
 
 ## Lessons Learned
