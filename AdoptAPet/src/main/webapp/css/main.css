@@ -1,4 +1,4 @@
-.homeBackgroundImage {
+/* .homeBackgroundImage {
 	background-image: url(../images/adopt-pet-home-background.jpeg);
 	background-repeat: no-repeat;
 	position: center;
@@ -6,10 +6,10 @@
 	width: 100%;
   	background-size: cover ;
   	background-color: #FBDCE2;
- /* 	background-blend-mode: color; */
- 	/* overflow-x:hidden; */
+ 	background-blend-mode: color; 
+ 	 overflow-x:hidden; 
 
-}
+} */
 
 header {
 	text-align: center;
@@ -17,60 +17,51 @@ header {
 }
 
 .resize {
-	width: 10%;
+	width: 110%;
 	height: auto;
 }
-body {
-	background-color: #FBDCE2 /* piggy pink */
-	
-	
-}
 
+body {
+    background-image: url(../images/backgroundpaw.png);
+    background-repeat: repeat-y;
+    background-size: 100%;
+    background-position: center;
+    background-color: gray;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 
 ul {
 	list-style-type: none;
 }
 
-.buttons {
-	  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-
-
 .container-login {
-    padding: 25px;
-    position: fixed;
-}
-.form-login {
-    background-color: #EDEDED;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 15px;
-    border-color:#d2d2d2;
-    border-width: 5px;
-    box-shadow:0 1px 0 #cfcfcf;
+	padding: 25px;
+	position: fixed;
 }
 
-h4 { 
- border:0 solid #fff; 
- border-bottom-width:1px;
- padding-bottom:10px;
- text-align: center;
+.form-login {
+	color: black;
+	background-color: #6dfc87;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 15px;
+	border-color: #d2d2d2;
+	border-width: 5px;
+	box-shadow: 0 1px 0 #cfcfcf;
+}
+
+h4 {
+	border: 0 solid #fff;
+	border-bottom-width: 1px;
+	padding-bottom: 10px;
+	text-align: center;
 }
 
 .form-control {
-    border-radius: 10px;
+	border-radius: 10px;
 }
 
 .login-box {
@@ -78,3 +69,37 @@ h4 {
 	position: relative;
 }
 
+.userpagetext {
+	font-family: Geneva;
+}
+
+.button {
+	display: block;
+	background: #4E9CAF;
+	padding: 20px;
+	text-align: center;
+	border-radius: 10px;
+	color: white;
+	font-style: oblique;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.button:hover {
+	background-color: #3e8e41
+}
+
+.button:active {
+	background-color: #3e8e41;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+
+form {
+	display: inline-block;
+}
+.body{
+text-align: center;
+background-color:#d0e4fe;
+font-family: Chalkduster;
+}

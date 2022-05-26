@@ -36,6 +36,8 @@
 				type="submit" name="account" value="Submit" />
 		</form>
 	</div>
+	
+	<c:if test="${not empty user.account.phoneNumber }">
 	<div>
 		<!-- insert rest of address here -->
 		<form action="updateMyAddress.do" method="POST">
@@ -60,6 +62,6 @@
 
 		</form>
 	</div>
-
+	</c:if>
 </div>
 </body>
