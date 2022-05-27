@@ -47,22 +47,30 @@
 	
 	Please enter your animals breed:
 	<select name="breedName" id="breedName"required >
+	<option value="7" selected disabled hidden>Select an Option</option>
 	<option value="1">Golden Retriever</option>
 	<option value="2">Persian</option>
-	<option value="3">Mutt Medium Dog</option>
-	<option value="4">Mutt Small Dog</option>
+	<option value="3">Mixed Medium Dog</option>
+	<option value="4">Mixed Small Dog</option>
+	<option value="5">Mixed breed large dog </option>
+	<option value="6">Great Dane</option>
+	<option value="7">Other</option>
+	<option value="8">French Bulldog</option>
+	<option value="9">Ragdoll Cat</option>
 	</select><br><br>
 	
-	What type of animal is your pet?
+<!-- 	What type of animal is your pet?
 	<select name="typeOfPet" id="typeOfPet"required >
-	<option value="dog">Dog</option>
 	<option value="cat">Cat</option>
+	<option value="dog">Dog</option>
 	<option value="bird">Bird</option>
 	<option value="hamster">Hamster</option>
-	</select><br><br>
+	<option value="5">Other</option>
+	</select><br><br> -->
 	
 	Is your animal male or female?
 	<select name="sexOfPetType" id="sexOfPet"required >
+	<option value="1" selected disabled hidden>Select an Option</option>
 	<option value="1">Male</option>
 	<option value="2">Female</option>
 	</select><br><br>

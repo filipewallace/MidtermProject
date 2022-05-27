@@ -25,7 +25,7 @@
 				<c:choose>
 
 
-					<c:when test="${empty user.account.petList }">No Pets Yet
+					<c:when test="${empty user.account.petList }"><h1>No Pets Yet</h1>
 		</c:when>
 					<c:otherwise>
 						<c:forEach var="pet" items="${user.account.petList}">
@@ -80,7 +80,7 @@
 
 			<c:choose>
 				<c:when test="${empty sessionScope.user.account.phoneNumber }">
-					<h3>Please Update your information before adding pets!</h3>
+					<h1>Please Update your information before adding pets!</h1>
 				</c:when>
 				<c:otherwise>
 				</c:otherwise>

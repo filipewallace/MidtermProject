@@ -10,8 +10,8 @@
 <body>
 <div class="container">
 	<%@ include file="../nav.jsp"%>
-	<p>
-	Pet has successfully been deleted!</p>
+	
+	<h1>Pet has successfully been deleted!</h1>
 </div>	
 </body>
 </html>

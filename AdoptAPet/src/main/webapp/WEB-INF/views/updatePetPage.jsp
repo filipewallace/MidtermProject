@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>AdoptAPet - Update Pet</title>
 <jsp:include page="../bootstrapAndCSSHeader.jsp"/>
 </head>
 <body>
@@ -45,25 +45,32 @@
 	
 	Please enter your animals breed:
 	<select name="breed.id" id="breedName">
+	<option value="7" selected disabled hidden>Select an Option</option>
 	<option value="1">Golden Retriever</option>
 	<option value="2">Persian</option>
-	<option value="3">Mutt Medium Dog</option>
-	<option value="4">Mutt Small Dog</option>
+	<option value="3">Mixed Medium Dog</option>
+	<option value="4">Mixed Small Dog</option>
+	<option value="5">Mixed breed large dog </option>
+	<option value="6">Great Dane</option>
 	<option value="7">Other</option>
+	<option value="8">French Bulldog</option>
+	<option value="9">Ragdoll Cat</option>
 	</select><br><br>
 	
-	What type of animal is your pet?
+<!-- 	What type of animal is your pet?
 	<select name="typeOfPet.id" id="typeOfPet">
 	<option value="1">Dog</option>
 	<option value="2">Cat</option>
 	<option value="3">Bird</option>
 	<option value="4">Hamster</option>
+	<option value="5">Other</option>
 	
 	
-	</select><br><br>
+	</select><br><br -->
 	
 	Is your animal male or female?
 	<select name="sexOfPet.id" id="sexOfPet">
+	<option value="1" selected disabled hidden>Select an Option</option>
 	<option value="1">Male</option>
 	<option value="2">Female</option>
 	</select><br><br>

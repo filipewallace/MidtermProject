@@ -79,8 +79,17 @@ public class PetDAOImpl implements PetDAO {
 		updatedPet.setNeutered(pet.isNeutered());
 		updatedPet.setAboutMe(pet.getAboutMe());
 		
-		updatedPet.setBreed(em.find(Breed.class, pet.getBreed().getId()));
-		updatedPet.setSexOfPet(em.find(SexOfPet.class, pet.getSexOfPet().getId()));
+		try {
+			updatedPet.setBreed(em.find(Breed.class, pet.getBreed().getId()));
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+		}
+		try {
+			updatedPet.setSexOfPet(em.find(SexOfPet.class, pet.getSexOfPet().getId()));
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 		
 		return null;
 	}
