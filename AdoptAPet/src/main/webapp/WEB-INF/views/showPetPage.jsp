@@ -16,13 +16,13 @@
 	         <c:if test="${not empty user  }">
         <%--  <c:when test="${empty pet }">Invalid Pet</c:when> --%>
     
-        <li> <img class="img-fluid" src= "${pet.imageLink }" > <br>
+         <img class="img-fluid" src= "${pet.imageLink }" > <br>
         <div class="col bg-light">
          
         <div class="row border border-warning">
-         <ul>
-        <li><h3>Name : ${pet.petName }</h3></li>
-        </ul>
+         
+       <h3>Name : ${pet.petName }</h3>
+        
         </div>
         
         <div class="row border border-warning">
@@ -68,7 +68,7 @@
 						</c:if>
  
         </c:if>
-         <c:if test="${ empty user  }">Create an account to see full pet listing </c:if>
+         <c:if test="${ empty user  }"><h1>Create an account to see full pet listing</h1> </c:if>
 
 
 </div>
